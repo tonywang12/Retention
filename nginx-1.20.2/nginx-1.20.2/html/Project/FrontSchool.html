@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Title</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#arrowUp').hide();
+
+    
+    var counter = 0;
+    var clicked = true;
+    if (localStorage.getItem('firstFrontSchool') == 'true'){
+    
+    $("div#stage").click(ClickCommand);
+
+    function ClickCommand(){
+        if (clicked){
+        counter++;
+        }
+        if (counter == 1){
+            $('div#chattext').text("...");
+            $('#chatbox').show();
+            $('#blur').css({ 'opacity': '0.5'});
+        }
+        if (counter == 2){
+            $('div#chattext').text("It's already dark.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("Kamnik Primary School...");
+        }
+        if (counter == 4){
+            $('div#chattext').text("...");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Never thought I'll be here again...");
+        }
+        if (counter == 6){
+            $('div#chattext').text("Navigate D through the school by clicking on the arrows"); 
+            $('#blur').css({ 'opacity': '0'});
+            clicked = false;
+            $('#arrowUp').show();
+            localStorage.setItem('firstFrontSchool', 'false');    
+        }
+    }
+    }
+    $("#arrowUp").click(function(){
+            console.log("I CLICK PHONE!");
+            clicked = true;
+            window.location = 'hallway1.html';
+        })
+        if (localStorage.getItem('firstFrontSchool') == 'false'){
+            $('#arrowUp').show();
+        }
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    
+    <div id="content">
+        <img id="arrowUp" src="test.png">
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

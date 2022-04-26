@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prologue</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#drawing').hide();
+    $('#window').hide();
+    $('#arrowDown').hide();
+    var counter = 0;
+    var clicked = true;
+    var Drawing = false;
+    $("div#stage").click(ClickCommand);
+
+    function ClickCommand(){
+        if (clicked){
+        counter++;
+        }
+        if (counter == 1){
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("This room's a mess.");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("I'm suprised things are still intact.");
+        }
+        if (counter == 3){
+            $('#chatbox').hide();
+            $('#window').show();
+            $('#drawing').show();
+            $('#arrowDown').show();
+            $('#blur').css({ 'opacity': '0'});
+        }
+    }
+        $("div#drawing").click(function(){
+            $('#window').hide();
+            $('#drawing').hide();
+            $('#arrowDown').hide();
+            var counter = 0;
+            $('div#stage').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+               //show image of drawing
+            }
+            if (counter == 2){
+                $('div#chattext').text("This drawing...");
+                $('#chatbox').show();
+            }
+            if (counter == 3){
+                $('div#chattext').text("It was quite the artwork we kids drew.");
+            }
+            if (counter == 4){
+                $('div#chattext').text("...");
+            }
+            if (counter == 5){
+                $('div#chattext').text("So it's been ten years ago since that day...");
+            }
+            if (counter == 6){
+                $('#chatbox').hide();
+                $('#blur').css({ 'opacity': '0'});
+                $('#window').show();
+                $('#drawing').show();
+                $('#arrowDown').show();
+            }
+      
+            })
+        })
+
+        $("div#window").click(function(){
+            $('#window').hide();
+            $('#drawing').hide();
+            $('#arrowDown').hide();
+            var counter = 0;
+            $('div#stage').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("This window seems to be damaged.");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                $('div#chattext').text("Perhaps what caused this damage is still outside near the window.");
+            }
+            if (counter == 3){
+                $('#chatbox').hide();
+                $('#blur').css({ 'opacity': '0'});
+                $('#window').show();
+                $('#drawing').show();
+                $('#arrowDown').show();
+            }
+            })
+        })
+        
+  
+
+
+        $("#arrowDown").click(function(){
+            window.location = 'hallway1.html';
+        })
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <img id="arrowDown" src="test.png">
+        <div id="drawing" class="clickables"></div>
+        <div id="window" class="clickables"></div>
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

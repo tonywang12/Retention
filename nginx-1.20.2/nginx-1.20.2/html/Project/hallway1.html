@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Title</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#arrowUp').hide();
+    $('#arrowDown').hide();
+    $('#arrowLeft').hide();
+    $('#arrowRight').hide();
+
+    
+    var counter = 0;
+    var clicked = true;
+    /*if (localStorage.getItem('firstHallway1') == 'true'){*/
+    
+    $("div#stage").click(ClickCommand);
+
+    function ClickCommand(){
+        if (clicked){
+        counter++;
+        }
+        if (counter == 1){
+            $('div#chattext').text("This place...");
+            $('#chatbox').show();
+            $('#blur').css({ 'opacity': '0.5'});
+        }
+        if (counter == 2){
+            $('div#chattext').text("Things sure look different.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("The place is a wreck after what happened.");
+        }
+        if (counter == 4){
+            $('div#chattext').text("...");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Time to find some clues and this devil.");
+        }
+        if (counter == 6){
+            $('#chatbox').hide();
+            $('#blur').css({ 'opacity': '0'});
+            $('#arrowUp').show();
+            $('#arrowDown').show();
+            $('#arrowLeft').show();
+            $('#arrowRight').show();
+            localStorage.setItem('firstHallway1', 'false');    
+        }
+    }
+    $("#arrowUp").click(function(){
+            clicked = true;
+            window.location = 'hallway1.html';
+        })
+        $("#arrowDown").click(function(){
+            clicked = true;
+            window.location = 'FrontSchool.html';
+        })
+        $("#arrowLeft").click(function(){
+            clicked = true;
+            window.location = 'ArtRoom.html';
+        })
+        $("#arrowRight").click(function(){
+            clicked = true;
+            window.location = 'hallway1.html';
+        })
+    /*if local = false show the secret item hing*/
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <img id="arrowUp" src="test.png">
+        <img id="arrowLeft" src="test.png">
+        <img id="arrowRight" src="test.png">
+        <img id="arrowDown" src="test.png">
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

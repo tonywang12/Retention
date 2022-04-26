@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MMCC3045</title>
+<link rel="icon" href="data:;base63,iVBORw0KGgo=">
+<link href="styles.css" rel="stylesheet" />
+<script src="jquery-3.4.1.min.js"></script>
+<script src="hittest.js"></script>
+<script>
+$(document).ready(function() { 
+
+	var going;
+	var animation;
+	var movement = {
+		81: { top: '-=1' },  //Q to move up
+		65: { top: '+=1' },  //A to move down
+		79: { left: '-=1' }, //O to move left
+		80: { left: '+=1' }, //P to move right
+	}
+	var collisionTimer;
+	var total = 10;
+
+	$(document).one('keydown', keyDown);
+
+	function keyDown(event) {
+		$(document).one('keyup', keyUp);
+		if(event.keyCode==81||event.keyCode==65||event.keyCode==79||event.keyCode==80) {
+			animation = movement[event.keyCode];
+			going = setInterval(keepGoing,1);
+		}
+	}
+
+	function keepGoing() {
+		$('#player').css(animation);		
+	}
+
+	function keyUp() {
+		clearInterval(going);
+		$(document).one('keydown', keyDown);
+	}
+	
+	function init() {
+		for(i=0;i<total;i++) {
+			$('<div></div>')
+			.appendTo('body')
+			.attr('class','wall')
+			.attr('id','wall'+i)
+			.css({
+				top: getRandomNumber(0, $(window).height()-50),
+				left: getRandomNumber(0, $(window).width()-50)
+			})
+		}
+		collisionTimer = setInterval(detectCollision,50);
+	}
+
+	function getRandomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function detectCollision() {
+		$('.wall').each(function() {
+			var hit = $('#player').objectHitTest({"object":$(this), "transparency":true});
+			if(hit) {
+				console.log( $(this).attr('id') )
+				$(this).hide();
+				if(total == 0) {
+					clearInterval(collisionTimer);
+				} else {
+					total--;
+				}
+				console.log(total);
+			}
+		})
+	}
+
+	init();
+
+})
+</script>
+</head>
+<body>
+	<img src="player.png" id="player">
+</body>
+</html>

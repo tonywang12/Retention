@@ -1,0 +1,13 @@
+#player {
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.wall {
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background-color: blue;
+}
