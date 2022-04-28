@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Prologue</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#key').hide();
+    $('#firstDevil').hide();
+    $('#arrowLeft').hide();
+    var counter = 0;
+    var clicked = true;
+
+
+    $("div#stage").click(ClickCommand);
+
+    function ClickCommand(){
+        if (clicked){
+        counter++;
+        }
+        if (counter == 1){
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("Something doesn't feel right.");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("");
+            //fade in the devil
+            $('#firstDevil').fadeIn(3000);
+        }
+        if (counter == 3){
+            $('#chatbox').hide();
+            //fightbox.show
+        }
+    }
+    
+    
+    //if killed devil and havent picked up yet
+        $("div#key").click(function(){
+            $('#window').hide();
+            $('#drawing').hide();
+            $('#arrowDown').hide();
+            var counter = 0;
+            $('div#stage').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+               //show image of drawing
+            }
+            if (counter == 2){
+                $('div#chattext').text("This drawing...");
+                $('#chatbox').show();
+            }
+            if (counter == 3){
+
+            }
+            })
+        })
+
+       
+
+        $("#arrowLeft").click(function(){
+            window.location = 'hallway1.html';
+        })
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <img id="firstDevil" src="test.png">
+        <img id="arrowLeft" src="test.png">
+        <div id="key" class="clickables"></div>
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

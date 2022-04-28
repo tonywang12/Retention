@@ -11,7 +11,7 @@ $(document).ready(function() {
     $('#content').fadeIn(3000);
     $('#chatbox').hide();
     $('#arrowUp').hide();
-
+    $('#bullet').hide();
     
     var counter = 0;
     var clicked = true;
@@ -49,6 +49,28 @@ $(document).ready(function() {
         }
     }
     }
+    if (localStorage.getItem('firstFrontSchool') == 'false'){
+        $('#bullet').show();
+    }
+
+    $("div#bullet").click(function(){
+        $('#bullet').hide();
+        localStorage.setItem('numberOfItems','0');   
+        var counter = 0;
+            $('div#stage').click(function(){
+                counter++;
+                console.log(counter);
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("This");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                $('div#chattext').text("Perhaps what caused this damage is still outside near the window.");
+            }
+         })
+    })
+
     $("#arrowUp").click(function(){
             console.log("I CLICK PHONE!");
             clicked = true;
@@ -64,6 +86,8 @@ $(document).ready(function() {
 <div id ="stage">
     
     <div id="content">
+        <img id="bullet" src="">
+        <div id="bulletClick" class="clickables"></div>
         <img id="arrowUp" src="test.png">
     <div id="blur"></div>
     <div id="chatbox"> 

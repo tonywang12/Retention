@@ -65,6 +65,7 @@ body{
     position: absolute;
     bottom: 20px;
     left: 150px;
+    z-index: 999;
 }
 
 #chatname{
@@ -144,7 +145,7 @@ body{
     font-weight: bold;
     text-align: center;
     padding: 6px 0 0 0;
-    z-index: 10;
+    z-index: 999;
 }
 
 #content{
@@ -218,4 +219,34 @@ body{
     background-color: black;
     border-radius: 100px;
     cursor: pointer;
+}
+
+#lockPick{
+    z-index: 1;
+    position:absolute;
+    top:0;
+}
+#player{
+    position:absolute;
+    top:400;
+    z-index: 101;
+}
+#maze{
+    position:absolute;
+    top:0;
+    width: 1300px;
+	height: 650px;
+    z-index: 100;
+}
+#goal{
+    position:absolute;
+    top:300;
+    right:100px;
+    z-index: 101;
+}
+#firstDevil{
+    position:absolute;
+    top:150px;
+    left:500px;
+    z-index: 998;
 }

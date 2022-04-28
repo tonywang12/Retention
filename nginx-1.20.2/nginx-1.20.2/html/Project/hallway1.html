@@ -18,10 +18,10 @@ $(document).ready(function() {
     
     var counter = 0;
     var clicked = true;
-    /*if (localStorage.getItem('firstHallway1') == 'true'){*/
+    if (localStorage.getItem('firstHallway1') == 'true'){
     
     $("div#stage").click(ClickCommand);
-
+    
     function ClickCommand(){
         if (clicked){
         counter++;
@@ -53,9 +53,17 @@ $(document).ready(function() {
             localStorage.setItem('firstHallway1', 'false');    
         }
     }
+    }
+    if (localStorage.getItem('firstFrontSchool') == 'false'){
+        $('#arrowUp').show();
+        $('#arrowDown').show();
+        $('#arrowLeft').show();
+        $('#arrowRight').show();    
+        }
+
     $("#arrowUp").click(function(){
             clicked = true;
-            window.location = 'hallway1.html';
+            window.location = 'JanitorRoom.html';
         })
         $("#arrowDown").click(function(){
             clicked = true;
@@ -67,7 +75,7 @@ $(document).ready(function() {
         })
         $("#arrowRight").click(function(){
             clicked = true;
-            window.location = 'hallway1.html';
+            window.location = 'StaffRoom.html';
         })
     /*if local = false show the secret item hing*/
 });

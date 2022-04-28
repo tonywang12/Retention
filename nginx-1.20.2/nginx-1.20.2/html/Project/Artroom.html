@@ -16,6 +16,9 @@ $(document).ready(function() {
     var counter = 0;
     var clicked = true;
     var Drawing = false;
+
+    if (localStorage.getItem('firstArtRoom') == 'true'){
+
     $("div#stage").click(ClickCommand);
 
     function ClickCommand(){
@@ -71,10 +74,19 @@ $(document).ready(function() {
                 $('#window').show();
                 $('#drawing').show();
                 $('#arrowDown').show();
+                localStorage.setItem('firstArtRoom', 'false');    
+
             }
       
             })
         })
+        }
+        if (localStorage.getItem('firstArtRoom') == 'false'){
+            $('#window').show();
+        $('#drawing').show();
+        $('#arrowDown').show();
+        }
+
 
         $("div#window").click(function(){
             $('#window').hide();
@@ -103,9 +115,6 @@ $(document).ready(function() {
             }
             })
         })
-        
-  
-
 
         $("#arrowDown").click(function(){
             window.location = 'hallway1.html';
