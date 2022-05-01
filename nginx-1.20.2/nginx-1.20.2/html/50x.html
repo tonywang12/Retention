@@ -38,7 +38,7 @@ $(document).ready(function() {
     }
 
     function detectCollision(){
-        var hit = $('#player').objectHitTest({"object":$('#wall'),"transparency":true});
+        var hit = $('#player').objectHitTest({"object":$('#goal'),"transparency":true});
         console.log(hit);
         if(hit){
             $('#player').hide();
@@ -52,5 +52,6 @@ $(document).ready(function() {
 <body>
     <img src="player.png" id="player">
     <img src="tunnel.png" id="wall">
+    <img id="goal" src = "test.png">
 </body>
 </html>

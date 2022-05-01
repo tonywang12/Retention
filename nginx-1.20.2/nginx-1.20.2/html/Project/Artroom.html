@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Prologue</title>
+<title>Art Room</title>
 <link rel="stylesheet" href="styles.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -13,6 +13,8 @@ $(document).ready(function() {
     $('#drawing').hide();
     $('#window').hide();
     $('#arrowDown').hide();
+    $('#picture').hide();
+
     var counter = 0;
     var clicked = true;
     var Drawing = false;
@@ -34,13 +36,22 @@ $(document).ready(function() {
             $('div#chattext').text("I'm suprised things are still intact.");
         }
         if (counter == 3){
+            localStorage.setItem('firstArtRoom', 'false');    
             $('#chatbox').hide();
             $('#window').show();
             $('#drawing').show();
             $('#arrowDown').show();
             $('#blur').css({ 'opacity': '0'});
+            }
         }
-    }
+        }
+
+        if (localStorage.getItem('firstArtRoom') == 'false'){
+            $('#window').show();
+            $('#drawing').show();
+            $('#arrowDown').show();
+        }
+
         $("div#drawing").click(function(){
             $('#window').hide();
             $('#drawing').hide();
@@ -53,7 +64,8 @@ $(document).ready(function() {
             
             if (counter == 1){
                 $('#blur').css({ 'opacity': '0.5'});
-               //show image of drawing
+                $('#picture').show(); // Show image of drawing
+
             }
             if (counter == 2){
                 $('div#chattext').text("This drawing...");
@@ -74,20 +86,11 @@ $(document).ready(function() {
                 $('#window').show();
                 $('#drawing').show();
                 $('#arrowDown').show();
-                localStorage.setItem('firstArtRoom', 'false');    
-
+                $('#picture').hide();
             }
       
             })
         })
-        }
-        if (localStorage.getItem('firstArtRoom') == 'false'){
-            $('#window').show();
-        $('#drawing').show();
-        $('#arrowDown').show();
-        }
-
-
         $("div#window").click(function(){
             $('#window').hide();
             $('#drawing').hide();
@@ -126,6 +129,8 @@ $(document).ready(function() {
 <div id ="stage">
     <div id="content">
         <img id="arrowDown" src="test.png">
+        <img id="picture" src="Drawing.png">
+
         <div id="drawing" class="clickables"></div>
         <div id="window" class="clickables"></div>
     <div id="blur"></div>

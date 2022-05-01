@@ -41,15 +41,30 @@ $(document).ready(function() {
             $('#chatbox').hide();
             $('#box').show();
             $('#arrowDown').show();
+
             localStorage.setItem('firstJanitorRoom', 'false');    
         }
     }
     }
     if (localStorage.getItem('firstJanitorRoom') == 'false'){
-            $('#window').show();
-        $('#drawing').show();
         $('#arrowDown').show();
-        }
+    }
+
+    if (localStorage.getItem('firstKey') == 'true'){
+        $('#box').hide();
+    }
+
+    if(localStorage.getItem('finishMaze') == 'true'){
+            $('#chatbox').show();
+            //play cool sound
+            $('div#chattext').text("You obtain a Key!");
+            localStorage.setItem('finishMaze', 'false');
+            localStorage.setItem('firstKey', 'true');
+            setTimeout(function(){
+                $('#chatbox').hide();
+            },5000)
+        }    
+
 
         $("div#box").click(function(){
             $('#box').hide();
@@ -71,67 +86,22 @@ $(document).ready(function() {
                 $('div#chattext').text("Lets try lock picking it.");
             }
             if (counter == 4){
-                $('div#chattext').text("Use arrow keys to navigate to the goal");
-                $('#blur').css({ 'opacity': '1'});
-                $('#player').show();
-                $('#maze').show();
-                $('#goal').show();
+                window.location = 'maze.html';
             }
-            if (counter == 5){
-                $('#chatbox').hide();
-            }
-            
-            })
+            })  
         })
-        
-        var going;
-        var animation;
-        var movement = {
-            37:{ left: '-=1'},
-            38:{ top: '-=1'},
-            39:{ right: '-=1'},
-            40:{ top: '+=1'},
-        }
-        $(document).one('keydown', keyDown);
-
-        function keyDown(event){
-            $(document).one('keyup',keyUp);
-            if(event.keyCode==37||event.keyCode==38||event.keyCode==39||event.keyCode==40){
-                animation = movement[event.keyCode];
-                going = setInterval(keepGoing,1);
-            }
-        }
-        function keepGoing(){
-            $('#player').css(animation);
-        }
-        function keyUp(){
-            clearInterval(going);
-            $(document).one('keydown', keyDown);
-        }
-
-        function detectCollision(){
-        var hit = $('#player').objectHitTest({"object":$('#maze'),"transparency":true});
-        console.log(hit);
-        if(hit){
-            $('#player').hide();
-            clearInterval(collisionTimer);
-        }
-        }
-
-    var collisionTimer = setInterval(detectCollision,50);
+    
         $("#arrowDown").click(function(){
             window.location = 'hallway1.html';
         })
+        
 });
 </script>
 </head>
 <body>
 <div id ="stage">
     <div id="content">
-            <img id="player" src ="player.png">
-            <img id="maze" src = "tunnel.png">
-            <img id="goal" src = "test.png">
-
+    
         <img id="arrowDown" src="test.png">
         <div id="box" class="clickables"></div>
     <div id="blur"></div>

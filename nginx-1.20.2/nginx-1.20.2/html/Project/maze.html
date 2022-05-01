@@ -1,0 +1,114 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>maze</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="hittest.js"></script>
+<script>
+$(document).ready(function() { 
+    
+
+    var counter = 0;
+    $("div#mazestage").click(function(){
+        $('#mazebox').show();
+        $('#chatbox').hide();
+        startTimer();
+    })
+
+
+    var going;
+    var animation;
+    var movement = {
+        37: {  left: '-=1'},
+        39: { left: '+=1'},
+        38: { top: '-=1'},
+        40: { top: '+=1'},
+    }
+    
+    $(document).one('keydown',keyDown);
+    
+    function keyDown(event){
+        $(document).one('keyup',keyUp);
+        if(event.keyCode==37||event.keyCode==38||event.keyCode==39||event.keyCode==40){
+            animation = movement[event.keyCode];
+            going = setInterval(keepGoing,1);
+        }
+    }
+
+    function keepGoing(){
+        $('#player').css(animation);
+    }
+
+    function keyUp(){
+        clearInterval(going);
+        $(document).one('keydown',keyDown);
+    }
+    
+    function detectCollision(){
+        var hit = $('#player').objectHitTest({"object":$('#maze'),"transparency":true});
+        console.log(hit);
+        if(hit){
+            $('#player').hide();
+            playerhits();
+            clearInterval(collisionTimer);
+        }
+
+        var goalhit = $('#player').objectHitTest({"object":$('#goal'),"transparency":true});
+        console.log(hit);
+        if(goalhit){
+            clearInterval(collisionTimer);
+            //local storage true
+            localStorage.setItem('finishMaze','true'); 
+            window.location = 'JanitorRoom.html';
+        }
+    }
+    function playerhits(){
+        $('#player').show();
+        $('#player').css({
+            top:430,
+            left:0,
+        });
+        collisionTimer = setInterval(detectCollision,50);
+    }
+    var collisionTimer = setInterval(detectCollision,50);
+
+    function startTimer(){
+        $('#time').animate({
+            width: 0
+        },{
+            easing:'linear',
+            duration: 18000,
+            complete:function(){
+                $('#chatbox').show();
+                $('div#chattext').text("You have failed. Try again");
+    
+                setTimeout(function(){
+                    window.location = 'maze.html';
+                },2500)
+            }
+        })
+    }
+    //startTimer();
+})
+</script>
+</head>
+<body>
+    <div id ="mazestage">
+        <div id="blur"></div>
+        <div id="chatbox">
+            <div id="chattext">Use arrow keys to navigate to the end</div>
+        </div>
+    <div id="mazebox">
+    <img src="player.png" id="player">
+    <img src="maze.png" id="maze">
+    <img id="goal" src = "test.png">
+    </div>
+    </div>
+    <div id="countdownbar">
+        <div id="time"></div>
+    </div>
+</body>
+</html>

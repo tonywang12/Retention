@@ -11,6 +11,19 @@
     box-shadow: 5px 10px #888888;
     
 }
+#mazestage {
+	width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+    background-color: white;
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    
+}
 #start{
     width: 200px;
     height: 45px;
@@ -227,8 +240,9 @@ body{
     top:0;
 }
 #player{
+    width: 20px;
     position:absolute;
-    top:400;
+    top:600px;
     z-index: 101;
 }
 #maze{
@@ -240,8 +254,8 @@ body{
 }
 #goal{
     position:absolute;
-    top:300;
-    right:100px;
+    top:300px;
+    right:200px;
     z-index: 101;
 }
 #firstDevil{
@@ -249,4 +263,153 @@ body{
     top:150px;
     left:500px;
     z-index: 998;
+}
+
+#fightbox{
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
+    height: 200px;
+    width: 1000px;
+    padding: 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 150px;
+    z-index: 999;
+}
+
+#bar{
+    width: 500px;
+    height: 40px;
+
+    border: 3px solid black;
+    position: absolute;
+    left: 370px;
+    top:50px;
+}
+#enemyhealth{
+    position: absolute;
+    top:0;
+    left:0;
+    height:40px;
+    width: 500px;
+    background-color: white;
+}
+
+#attack1, #skill1{
+
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+#attack2, #skill2{
+    left:300px;
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+#attack3{
+    left:600px;
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+#back{
+    left:700px;
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+
+#attack{
+
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+#skill{
+    left:300px;
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+#item{
+    left:600px;
+    position: absolute;
+    padding: 50px;
+    font-size:20px;
+}
+
+#healthbar{
+
+    width: 130px;
+    height: 10px;
+    border: 3px solid white;
+    position: absolute;
+    right:190px;
+    bottom:150px;
+    z-index: 1000;
+}
+#health{
+    position: absolute;
+    top:0;
+    left:0;
+    height:10px;
+    width: 130px;
+    background-color: red;
+}
+#manabar{
+
+    width: 130px;
+    height: 10px;
+    border: 3px solid white;
+    position: absolute;
+    right:190px;
+    bottom:100px;
+    z-index: 1000;
+}
+#mana{
+    position: absolute;
+    top:0;
+    left:0;
+    height:10px;
+    width: 130px;
+    background-color: lightblue;
+}
+
+#countdownbar{
+    top:100px;
+    left:600px;
+    width: 500px;
+    height: 20px;
+    border: 1px solid white;
+    position: relative;
+}
+#time{
+    position:absolute;
+    width: 500px;
+    height:20px;
+    background-color: whitesmoke;
+}
+#goal{
+    width: 50px;
+    height:50px;
+}
+
+#picture{
+    position: absolute;
+    width: 450px;
+    z-index: 98;
+    left: 420px;
+    top:20px;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
+    user-select: none;
+
 }
