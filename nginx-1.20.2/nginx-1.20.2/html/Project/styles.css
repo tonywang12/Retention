@@ -207,6 +207,26 @@ body{
     top:250px;
     cursor: pointer;
 }
+#arrowRight1{
+    user-select: none;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    top:150px;
+    cursor: pointer;
+}
+#arrowRight2{
+    user-select: none;
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    top:450px;
+    cursor: pointer;
+}
 #arrowDown{
     user-select: none;
     position: absolute;
@@ -259,16 +279,16 @@ body{
     z-index: 101;
 }
 #firstDevil{
+    height:650px;
     position:absolute;
-    top:150px;
-    left:500px;
+    
+    left:230px;
     z-index: 998;
 }
 
 #fightbox{
     box-sizing: border-box;
     user-select: none;
-    cursor: pointer;
     color: whitesmoke;
     background-color: black;
     border: 10px solid white;
@@ -284,6 +304,8 @@ body{
 }
 
 #bar{
+    z-index: 999;
+
     width: 500px;
     height: 40px;
 
@@ -293,50 +315,89 @@ body{
     top:50px;
 }
 #enemyhealth{
+    z-index: 999;
+
     position: absolute;
     top:0;
     left:0;
     height:40px;
     width: 500px;
+    font-size: 30px;
     background-color: white;
 }
 
 #attack1, #skill1{
+    border: 2px solid yellow;
+    padding-inline: 40px;
+    position: absolute;
+    font-size:20px;
+    cursor: pointer;
+    color: yellow;
 
-    position: absolute;
-    padding: 50px;
-    font-size:20px;
 }
-#attack2, #skill2{
-    left:300px;
+#attack2{
+    border: 2px solid yellow;
+    padding-inline: 42px;
     position: absolute;
-    padding: 50px;
+    top:60px;
     font-size:20px;
+    cursor: pointer;
+    color: yellow;
+
 }
 #attack3{
-    left:600px;
+    border: 2px solid yellow;
+    padding-inline: 47px;
     position: absolute;
-    padding: 50px;
     font-size:20px;
+    top:100px;
+    cursor: pointer;
+    color: yellow;
+
+}
+#skill2{
+    color: yellow;
+
+    border: 2px solid yellow;
+    padding-inline: 61px;
+    position: absolute;
+    top:60px;
+    font-size:20px;
+    cursor: pointer;
 }
 #back{
-    left:700px;
+    left:780px;
     position: absolute;
-    padding: 50px;
+    padding: 60px;
+    padding-inline: 70px;
     font-size:20px;
+    border: 5px solid yellow;
+    
 }
 
 #attack{
-
+    border: 5px solid yellow;
+    color: yellow;
     position: absolute;
-    padding: 50px;
-    font-size:20px;
+    padding: 10px;
+    font-size:40px;
+    left:200px;
+    top:40px;
+    cursor: pointer;
+
 }
 #skill{
-    left:300px;
+    border: 5px solid yellow;
+    color: yellow;
     position: absolute;
-    padding: 50px;
-    font-size:20px;
+    padding: 10px;
+    padding-right: 40px;
+
+    font-size:40px;
+    left:500px;
+    top:40px;
+    cursor: pointer;
+
 }
 #item{
     left:600px;
@@ -346,39 +407,42 @@ body{
 }
 
 #healthbar{
-
-    width: 130px;
-    height: 10px;
+    
+    width: 120px;
+    height: 20px;
     border: 3px solid white;
     position: absolute;
-    right:190px;
-    bottom:150px;
+    left:300px;
+    bottom:40px;
     z-index: 1000;
 }
 #health{
+    color:white;
     position: absolute;
     top:0;
     left:0;
-    height:10px;
-    width: 130px;
+    height:20px;
+    width: 120px;
     background-color: red;
 }
 #manabar{
 
-    width: 130px;
-    height: 10px;
+    width: 120px;
+    height: 20px;
     border: 3px solid white;
     position: absolute;
-    right:190px;
-    bottom:100px;
+    left:600px;
+    bottom:40px;
     z-index: 1000;
 }
 #mana{
+    color:white;
+
     position: absolute;
     top:0;
     left:0;
-    height:10px;
-    width: 130px;
+    height:20px;
+    width: 120px;
     background-color: lightblue;
 }
 
@@ -412,4 +476,58 @@ body{
     box-shadow: 5px 5px #888888;
     user-select: none;
 
+}
+#fightInstructions{
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
+    height: 200px;
+    width: 1000px;
+    padding: 15px;
+    position: absolute;
+    bottom: 300px;
+    left: 150px;
+    z-index: 999;
+}
+
+#devilName{
+    position: absolute;
+    left:371px;
+    top:18px;
+    font-size: 30px;
+    z-index: 999;
+
+}
+#fightInstructionstext{
+    color: whitesmoke;
+    position: absolute;
+    top:50px;
+    left:50px;
+    font-size: 25px;
+}
+
+#info{
+    position: absolute;
+    left: 200px;
+    top:50px;
+    font-size: 25px;
+    color: whitesmoke;
+}
+#infocost{
+    position: absolute;
+    left: 200px;
+    top:80px;
+    font-size: 25px;
+    color: lightskyblue;
+}
+
+#Door{
+    position: absolute;
+    height: 650px;
+    left:300px;
 }

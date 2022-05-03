@@ -16,6 +16,7 @@ $(document).ready(function() {
     var counter = 0;
     var clicked = true;
 
+    if (localStorage.getItem('firstDevilDefeat') == 'false' && localStorage.getItem('firstKey') == 'false'){
 
     $("div#stage").click(ClickCommand);
 
@@ -34,38 +35,44 @@ $(document).ready(function() {
             $('#firstDevil').fadeIn(3000);
         }
         if (counter == 3){
-            $('#chatbox').hide();
-            //fightbox.show
+            window.location = 'fight1.html';
         }
     }
+}
     
-    
-    //if killed devil and havent picked up yet
-        $("div#key").click(function(){
-            $('#window').hide();
-            $('#drawing').hide();
-            $('#arrowDown').hide();
-            var counter = 0;
-            $('div#stage').click(function(){
-                counter++;
-                console.log(counter);
-                
-            
-            if (counter == 1){
-                $('#blur').css({ 'opacity': '0.5'});
-               //show image of drawing
-            }
-            if (counter == 2){
-                $('div#chattext').text("This drawing...");
-                $('#chatbox').show();
-            }
-            if (counter == 3){
+    if (localStorage.getItem('firstDevilDefeat') == 'true'){
 
-            }
-            })
-        })
+        $("div#stage").click(ClickCommand);
 
-       
+    function ClickCommand(){
+        if (clicked){
+        counter++;
+        }
+        if (counter == 1){
+        $('#blur').css({ 'opacity': '0.5'});
+        $('div#chattext').text("The devil seemed to drop something...");
+        $('#chatbox').show();
+     }
+        if (counter == 2){
+            $('#chatname').hide();
+            $('div#chattext').text("*You obtained a KEY!*");
+        }
+        if (counter == 3){
+            $('#chatname').show();
+            $('div#chattext').text("Looks like this might be useful.");
+            localStorage.setItem('firstKey', 'true');
+            localStorage.setItem('firstDevilDefeat', 'false');
+            $('#chatbox').hide();
+            $('#blur').css({ 'opacity': '0'});
+            $('#arrowLeft').show();
+
+        }
+    }
+    }
+
+    if (localStorage.getItem('firstDevilDefeat') == 'false' && localStorage.getItem('firstKey') == 'true'){
+        $('#arrowLeft').show();
+    }
 
         $("#arrowLeft").click(function(){
             window.location = 'hallway1.html';
