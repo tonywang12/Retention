@@ -2,27 +2,147 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Hallway</title>
+<title>Hallway 2</title>
 <link rel="stylesheet" href="styles.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#arrowUp').hide();
+    $('#arrowDown').hide();
+    $('#arrowLeft').hide();
+    $('#arrowRight').hide();
+    $('#boy1').hide();
+
+    localStorage.setItem('firstScienceRoom', 'true');    
+    localStorage.setItem('articleComplete', 'false'); 
+    localStorage.setItem('articleAva', 'true');
+
+       
+
+    var laugh  = new Audio('audio/laugh.mp3');
+    var counter = 0;    
+    var counter2 = 0;
+
+
+    if (localStorage.getItem('firstHallway2') == 'true'){ 
+        $("div#Hallway2").click(ClickCommand);
+    }
+
+    function ClickCommand(){
+        counter++;
+        if (counter == 1){
+            laugh.play();
+        }
+        if (counter == 2){
+            $('#boy1').fadeIn(2000);
+        }
+        if (counter == 3){
+            $('#boy1').fadeOut(4000);
+
+            $('#chatbox').show();
+            $('#blur').css({ 'opacity': '0.5'})
+            $('div#chattext').text("Why is there a kid here.");
+        }
+        if (counter == 4){
+            $('div#chattext').text("...");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Hopefully he's still safe if I find him later.");
+        }
+        if (counter == 6){
+            localStorage.setItem('firstHallway2','false');    
+            $('#chatbox').hide();
+            $('#blur').css({ 'opacity': '0'});
+            $('#arrowUp').show();
+            $('#arrowDown').show();
+            $('#arrowLeft').show();
+            $('#arrowRight').show();    
+        }
+    }
+
+    if (localStorage.getItem('firstHallway2') == 'false'){ 
+        $('#arrowUp').show();
+        $('#arrowDown').show();
+        $('#arrowLeft').show();
+        $('#arrowRight').show(); 
+    }
+
+
+    if(localStorage.getItem('secondKey') == 'false'){
+        $("#arrowUp").click(function(){
+            $("div#Hallway2").click(ClickCommand2);
+        })
+    }
+            function ClickCommand2(){
+                    counter2++;
+                
+                if (counter2 == 1){
+                    $('#arrowUp').hide();
+                    $('#arrowDown').hide();
+                    $('#arrowLeft').hide();
+                    $('#arrowRight1').hide();
+                    $('#chatbox').show();
+                    $('div#chattext').text("It won't budge");
+                    $('#blur').css({ 'opacity': '0.5'});
+                }
+                if (counter2 == 2){
+                    $('div#chattext').text("Hmm...");
+                }
+                if (counter2 == 3){
+                    $('div#chattext').text("Seems like this key doesn't work.");
+                }
+                if (counter2 == 4){
+                    $('div#chattext').text("Perhaps there is another one near by.");
+                }
+                if (counter2 == 5){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowUp').show();
+                    $('#arrowDown').show();
+                    $('#arrowLeft').show();
+                    $('#arrowRight1').show();    
+                }
+            }
+     
+
+    if(localStorage.getItem('secondKey') == 'true' && localStorage.getItem('DrawingDevilDefeat') == 'false'){
+        $("#arrowUp").click(function(){
+            window.location = 'DrawingDevil.html';
+        })
+    } 
+    if(localStorage.getItem('DrawingDevilDefeat') == 'true'){
+        $("#arrowUp").click(function(){
+            window.location = 'LockerRoom.html';
+        })
+    }   
+
+
+    $("#arrowDown").click(function(){
+        window.location = 'hallway1.html';
+    })
+    $("#arrowLeft").click(function(){
+        window.location = 'ScienceRoom.html';
+    })
+    $("#arrowRight").click(function(){
+        window.location = 'ComputerRoom.html';
+    })
+
     
+
 });
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="Hallway2">
     <div id="content">
-        <img id="Door" src="test.png">
-        <div id="Doorbar">
-            <div id = "DoorTotal"></div>
-        </div>
-        <img id="arrowUp" src="test.png">
-        <img id="arrowLeft" src="test.png">
-        <img id="arrowRight1" src="test.png">
-        <img id="arrowRight2" src="test.png">
-        <img id="arrowDown" src="test.png">
+        <img id="boy1" src="images/boylaugh.png">
+        <img id="arrowUp" src="images/up.png">
+        <img id="arrowLeft" src="images/left.png">
+        <img id="arrowRight" src="images/right.png">
+        <img id="arrowDown" src="images/down.png">
     <div id="blur"></div>
     <div id="chatbox"> 
         <div id="chatname">D</div>

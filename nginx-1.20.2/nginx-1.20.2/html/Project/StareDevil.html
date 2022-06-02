@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Stare Devil</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#chatbox').hide();
+    $('#fightbox').hide();
+    $('#arrowLeft').hide();
+    $('#attackbox').hide();
+    $('#skillbox').hide();
+    $('#itembox').hide();
+    $('#playerinfo').hide();
+    $('#fightInstructions').hide();
+    $('#rewardbox').hide();
+    $('#firstDevil').hide();
+    $('#firstDevil').fadeIn(3000);
+
+
+
+    $('#firstDevil').show();
+
+    
+    var counter = 0;
+    var counter2 = 0;
+
+    var battlecounter = 0;
+
+    var devilHealth = 100;
+    var maxDevilHealth = devilHealth;
+    var health = 100; // should be local storage value in other fights
+    var maxHealth = 100;
+    var mana = 100; // should be local storage value in other fights
+    var maxMana = 100;
+    
+    $('div#health').text(health +"/"+ maxHealth);
+    $('div#mana').text(mana +"/"+ maxMana);
+
+    localStorage.setItem('firstDevilDefeat', 'false');
+    localStorage.setItem('defeat1', 'false');
+    $("div#stage").click(ClickCommand);
+    
+    function ClickCommand(){
+        counter++;
+        if (counter == 1){
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("It's been a while since I last fought");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("Lets hope my skills haven't gotten rusty");
+        }
+        if (counter == 3){
+            $('#blur').css({ 'opacity': '0'});
+            $('#chatbox').hide();
+            $('#fightbox').show();
+            $('#playerinfo').show();
+
+            //fade in the devil
+        }
+        if (counter == 4){
+            $('#fightInstructions').show();
+            $('div#fightInstructionstext').text("Fight the devil in combat. Hover over your attacks and skills for more information.");
+        }
+        
+        if (counter == 5){
+            $('#fightInstructions').hide();
+            
+            battleTurn();
+        }
+    }
+
+    
+
+    function devilTurn(){
+        $('div#health').text(health +"/"+ maxHealth);
+        console.log("mana = " + mana);
+
+        console.log("hp" + devilHealth);
+        $('div#enemyhealth').text(devilHealth +"/"+ maxDevilHealth);
+
+        //IF KILLED DEVIL
+        if (devilHealth<=0){
+            $('#firstDevil').fadeOut(3000);
+            localStorage.setItem('BossDefeat', 'true');
+            setTimeout(function(){
+                localStorage.setItem('firstDevilDefeat', 'true');
+
+                window.location = 'StaffRoom.html';
+            },1000)
+        }
+        if (battlecounter==1){
+            console.log("1");
+            $('div#chattext').text("Stare Devil uses Stare Beam");
+            setTimeout(function(){
+                health-=10;
+                $('div#health').text(health +"/"+ maxHealth);
+                $('#health').css({ 'width': '-=10%'});
+                $('#chatbox').hide();
+                $('#actions').show();
+                if (health<=0){
+                console.log("DEAD");
+                Dead();
+                }
+            },1500)
+        }
+        if (battlecounter==2){
+            console.log("2");
+            $('div#chattext').text("Stare Devil uses Stare Beam");
+            setTimeout(function(){
+                health-=10;
+                $('div#health').text(health +"/"+ maxHealth);
+                $('#health').css({ 'width': '-=10%'});
+                $('#chatbox').hide();
+                $('#actions').show();
+                if (health<=0){
+                console.log("DEAD");
+                Dead();
+                }
+            },1500)
+        }
+        if (battlecounter==3){
+            console.log("3");
+            $('div#chattext').text("Stare Devil uses Stare Blast");
+            setTimeout(function(){
+                health-=250;
+                $('div#health').text(health +"/"+ maxHealth);
+                $('#health').css({ 'width': '-=25%'});
+                $('#chatbox').hide();
+                $('#actions').show();
+                if (health<=0){
+                console.log("DEAD");
+                Dead();
+                }
+                battlecounter = 0;
+            },1500)
+        }
+    }
+
+    function Dead(){
+        $('#chatbox').show();
+        $('div#chattext').text("You have failed. Try again");
+        setTimeout(function(){
+            window.location = 'fight.html';
+        },5000)
+    }
+
+    function battleTurn(){
+        console.log("battle turn");
+
+
+        $("div#attack").click(function(){
+            $('#actions').hide();
+            $('#attackbox').show();
+            
+        })
+    $("div#skill").click(function(){
+             $('#actions').hide();
+            $('#skillbox').show();
+    })
+    $("div#attack1").click(function(){ //Heal shot
+        var healthtest = health;
+
+            $('#chatname').hide();
+            $('#attackbox').hide();
+            $('#actions').hide();
+            $('#chatbox').show();
+            $('div#chattext').text("D used Heal Shot!");
+            if ((healthtest+=20) > maxHealth){
+                health = maxHealth;
+                $('#health').css({ 'width': '120px'});
+                $('div#health').text(health +"/"+ maxHealth);
+
+            } else {
+                health+=20;
+                $('#health').css({ 'width': '+=20%'});
+                $('div#health').text(health +"/"+ maxHealth);
+
+            }
+            setTimeout(function(){
+                console.log("battlecounter ++");
+                devilHealth-=25;
+                $('#enemyhealth').css({ 'width': '-=25%'});
+                battlecounter++;
+            
+                devilTurn();
+  
+            },1500)
+        })
+    $("div#attack2").click(function(){ // focus palm
+            
+            $('#attackbox').hide();
+            $('#actions').show();
+            $('#chatname').hide();
+            $('#chatbox').show();
+            $('div#chattext').text("D used Focus Palm!");
+            setTimeout(function(){
+                devilHealth-=10;
+
+                var manatest = mana;
+                if ((manatest+=40)<maxMana){
+                    mana+=40
+                    $('#mana').css({ 'width': '+=30%'});
+                    $('div#mana').text(mana +"/"+ maxMana);
+                } else{
+                    mana = maxMana;
+                    $('#mana').css({ 'width': '100%'});
+                    $('div#mana').text(mana +"/"+ maxMana);
+                }
+                $('#enemyhealth').css({ 'width': '-=10%'});
+                battlecounter++;
+                devilTurn();
+            },1500)
+    })
+    $("div#attack3").click(function(){ //DD punch
+            
+            $('#attackbox').hide();
+            $('#chatname').hide();
+            $('#actions').show();
+            $('#chatbox').show();
+            $('div#chattext').text("D used DD Punch!");
+            setTimeout(function(){
+                devilHealth-=35;
+            $('#enemyhealth').css({ 'width': '-=35%'});
+                battlecounter++;
+                devilTurn();
+            },1500)
+    })
+    $("div#back").click(function(){
+            $('#attackbox').hide();
+            $('#skillbox').hide();
+
+            $('#actions').show();
+    })
+
+    $("div#skill1").click(function(){ //Dark binding
+        var manatest = mana;
+        var healthtest = health;
+        if ((manatest-=30)<0){
+            console.log("not enough mana");
+        }else{
+            mana-=30
+            $('div#mana').text(mana +"/"+ maxMana);
+            $('#mana').css({ 'width': '-=30%'});
+            $('#chatname').hide();
+            $('#skillbox').hide();
+            $('#actions').show();
+            $('#chatbox').show();
+            $('div#chattext').text("D used Dark Binding!");
+            setTimeout(function(){
+                devilHealth-=65;
+            $('#enemyhealth').css({ 'width': '-=65%'});
+                battlecounter++;
+                devilTurn();
+            },1500)
+        }
+        })
+    $("div#skill2").click(function(){ // heal
+        var manatest = mana;
+        var healthtest = health;
+        if ((manatest-=40)<0){
+            console.log("not enough mana");
+        }else{
+            
+            if ((healthtest+=50) >= maxHealth){
+                $('#chatname').hide();
+                $('#skillbox').hide();
+                $('#actions').show();
+                $('#chatbox').show();
+                $('div#chattext').text("D used Pray!");
+                setTimeout(function(){
+                battlecounter++;
+                health = maxHealth;
+                
+                $('#health').css({ 'width': '120px'});
+                mana-=40
+                $('#mana').css({ 'width': '-=40%'});
+                $('div#mana').text(mana +"/"+ maxMana);
+                $('div#health').text(health +"/"+ maxHealth);
+
+                devilTurn();
+                },1500)
+            }else{
+            $('#chatname').hide();
+            $('#skillbox').hide();
+            $('#actions').show();
+            $('#chatbox').show();
+            $('div#chattext').text("D used Pray!");
+            setTimeout(function(){
+                health+=50
+                $('#health').css({ 'width': '+=50%'});
+                battlecounter++;
+                mana-=40
+                $('div#mana').text(mana +"/"+ maxMana);
+                $('div#health').text(health +"/"+ maxHealth);
+
+                $('#mana').css({ 'width': '-=40%'});
+                
+                devilTurn();
+            },1500)
+            }
+
+            
+        }
+    })
+    }
+    //attack/skill information
+    $("#attack1").mouseover(function () {
+        $('div#info').text("Deal 25 Damage, Restore 20 Health");
+    });
+    $('#attack1').mouseleave(function(){
+        $('div#info').text("");
+  	});
+
+    $("#attack2").mouseover(function () {
+        $('div#info').text("Deal 10 Damage, Restore 40 Mana");
+    });
+    $('#attack2').mouseleave(function(){
+        $('div#info').text("");
+  	});
+
+    $("#attack3").mouseover(function () {
+        $('div#info').text("Deal 35 Damage");
+    });
+    $('#attack1').mouseleave(function(){
+        $('div#info').text("");
+  	});
+
+    $("#skill1").mouseover(function () {
+        $('div#info').text("Deal 65 Damage");
+        $('div#infocost').text("30 Mana");
+    });
+    $('#skill1').mouseleave(function(){
+        $('div#info').text("");
+        $('div#infocost').text("");
+  	});
+      
+    $("#skill2").mouseover(function () {
+        $('div#info').text("Heal 50 health");
+        $('div#infocost').text("40 Mana");
+
+    });
+    $('#skill2').mouseleave(function(){
+        $('div#info').text("");
+        $('div#infocost').text("");
+  	});
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <div id="devilName">STARE DEVIL</div>
+        <img id="firstDevil" src="images/firstDevil.png">
+        <div id="bar">
+            <div id="enemyhealth">100/100</div>
+        </div>
+    <div id="blur"></div>
+    <div id="fightInstructions">
+        <div id="fightInstructionstext"></div>
+    </div>
+    <div id="playerinfo">
+        <p id="hp">HP</p>
+        <p id="ma">MANA</p>
+        <div id="healthbar"> 
+            <div id="health"></div>
+        </div>
+        <div id="manabar"> 
+            <div id="mana"></div>
+        </div>
+    </div>
+    <div id="fightbox">
+        <div id="actions">
+        <div id="attack">Attack</div>
+        <div id="skill">Skill</div>
+    </div>
+    <div id="attackbox">
+        <div id="attack1">Heal Shot</div>
+        <div id="attack2">Focus Palm</div>
+        <div id="attack3">DD Punch</div>
+        <div id="info"></div>
+        <div id="back">Back</div>
+    </div>
+
+    <div id="skillbox">
+        <div id="info"></div>
+        <div id="infocost"></div>
+
+        <div id="skill1">Dark Binding</div>
+        <div id="skill2">Heal</div>
+        <div id="back">Back</div>
+    </div>
+</div>
+<!-- Hover over a move will show a text box on side on information aboiut the move -->
+
+
+    <div id="chatbox"> 
+        <div id="chattext"></div>
+        <div id="chatname">D</div>
+    </div>
+</div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/14 Acrophobia.mp3" type="audio/mp3">
+</audio>
+</body>
+</html>

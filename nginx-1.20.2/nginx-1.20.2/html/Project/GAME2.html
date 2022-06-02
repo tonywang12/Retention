@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>GAmE</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="hittest.js"></script>
+<script>
+$(document).ready(function() { 
+    
+    
+	$('#countdownbar').hide();
+
+    
+    var gameTimer;
+	var going;
+	var animation;
+	var change = {
+		37: {  left: '-=1'},
+        39: { left: '+=1'},
+        38: { top: '-=1'},
+        40: { top: '+=1'},
+	}
+
+
+	$(document).one('keydown', keyDown);
+
+	function keyDown(event) {
+		$(document).one('keyup', keyup);
+		if(event.keyCode==37||event.keyCode==38||event.keyCode==39||event.keyCode==40){
+			animation = change[event.keyCode];
+			going = setInterval(keepGoing, 1);
+		}
+	}
+	function keepGoing() {
+		$('#playergame').css(animation);
+	}
+	function keyup(e) {
+		clearInterval(going);
+		$(document).one('keydown', keyDown);
+	}
+
+	function getRandomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+	}
+
+	function generateEnemies() {
+		$('<img>').appendTo('#gameStage')
+		.attr('id','enemy2')
+		.attr('src','images/test.png')
+		.css({ 
+			top: getRandomNumber( 0, $('#gameStage').height()-$('#playergame').height() ),
+            left: $('#gameStage').width(),
+            
+			position: 'absolute'
+		})
+		.animate({
+			left: 0
+		},{
+			easing: 'linear',
+			duration: getRandomNumber(3000,6000),
+			step: detectCollision,
+			complete: function() {
+				$(this).remove();
+			}
+		})
+	}
+	function detectCollision() {
+		var hit = $(this).objectHitTest({"object":$('#playergame'), "transparency":true});
+		console.log(hit);
+		if(hit) {
+			$(this).stop().fadeOut();
+				endGame('died');
+		}
+	}
+	
+	function endGame(status) {
+		if(status=='died') {
+			alert('Game Over. Restarting Game...');
+                window.location = 'GAME.html'; 
+		}
+		if(status=='survived') {
+                alert('The Memories Of These Computer Seem To Have A Connection To You...');
+                window.location = 'GAME3.html';
+		}
+		clearInterval(enemyTimer);
+		$('#time').stop();
+		$('.enemy').stop().fadeOut();
+		$('#gameStage').css({ cursor: 'auto' });
+	}
+	function start() {
+		$('#gameStage').css({ cursor: 'none' });
+		enemyTimer = setInterval(generateEnemies,500);
+		$('#time').animate({
+			width: 0
+		},{
+			easing: 'linear',
+			duration:5000,	
+			complete: function() {
+				endGame('survived');
+			}
+		})
+	}
+    start();
+})
+</script>
+</head>
+<body>
+    <div id ="gameStage">
+        <div id="blur"></div>
+        
+    
+    <img src="images/player.png" id="playergame">
+    </div>
+    <div id="countdownbar">
+        <div id="time"></div>
+    </div>
+</body>
+</html>

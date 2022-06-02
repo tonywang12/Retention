@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Locker Room</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#lockerRoom').hide();
+    $('#lockerRoom').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#drawing').hide();
+    $('#window').hide();
+    $('#arrowDown').hide();
+    $('#arrowLeft').hide();
+
+    $('#picture').hide();
+
+    var counter = 0;
+    //
+    if (localStorage.getItem('firstLockerRoom') == 'true'){
+
+    $("div#lockerRoom").click(ClickCommand);
+
+    function ClickCommand(){
+        counter++;
+        if (counter == 1){
+            $('#chatname').text("???");
+            $('div#chattext').text("Kel we have to go to the park again today");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("I bet the five dollars are still in the sand pit from yesterday");
+        }
+        if (counter == 3){
+            $('div#chattext').text("Combining the five dollars I got from mom today we can definetly do it this time!");
+        }
+        if (counter == 4){
+            $('div#chattext').text("This time we can both buy TWO ICE CREAMS EACH!");
+        }
+        if (counter == 5){
+            $('div#chattext').text("I'm going to buy a fruit pop and a spongesob one!");
+        }
+        if (counter == 5){
+            $('div#chattext').text("And I'm going to ask for another sample of the cookie dough");
+        }
+        if (counter == 6){
+            $('div#chattext').text("...");
+        }
+        if (counter == 7){
+            $('div#chattext').text("I KNOW IT'S THE BEST EATING ICE CREAM WITHOUT PAYING!");
+        }
+        if (counter == 8){
+            $('div#chattext').text("I'M PRACTICALLY STEALING!");
+        }
+        if (counter == 9){
+            $('div#chattext').text("I just eat it then run away in case he chases me");
+        }
+        if (counter == 10){
+            $('div#chattext').text("...");
+        }
+        if (counter == 11){
+            $('div#chattext').text("What about you?");
+        }
+        if (counter == 12){
+            $('#chatbox').hide();
+        }
+        if (counter == 13){
+            var img = "images/locker.png";  
+            $("#lockerRoom").css("background-image", "url(" + img + ")");
+        }
+        if (counter == 14){
+            $('#chatbox').show();
+            $('#chatname').text("D");
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("...");
+        }
+        if (counter == 15){
+            $('div#chattext').text("Why did I...");
+        }
+        if (counter == 16){
+            $('div#chattext').text("...");
+        }
+        if (counter == 17){
+            $('div#chattext').text("Am I seeing things?");
+        }
+        if (counter == 18){
+            $('#chatname').text("???");
+            $('div#chattext').text("*laughing*");
+        }
+        if (counter == 19){
+            $('div#chattext').text("Come find me!");
+        }
+        if (counter == 20){
+            $('div#chattext').text("I'm where you hide that day.");
+        }
+        if (counter == 21){
+            $('#chatname').text("D");
+            $('div#chattext').text("What...");
+        }
+        if (counter == 22){
+            $('div#chattext').text("How.");
+        }
+        if (counter == 23){
+            $('div#chattext').text("");
+        }
+        if (counter == 24){
+            localStorage.setItem('firstLockerRoom', 'false');    
+            localStorage.setItem('bossAvaliable', 'true');
+            $('#chatbox').hide();
+            $('#window').show();
+            $('#drawing').show();
+            $('#arrowDown').show();
+            $('#arrowLeft').show();
+            $('#blur').css({ 'opacity': '0'});
+            }
+        }
+    }
+
+    if (localStorage.getItem('firstLockerRoom') == 'false'){
+        $('#arrowDown').show();
+        $('#arrowLeft').show();
+
+        var img = "images/locker.png";  
+        $("#lockerRoom").css("background-image", "url(" + img + ")");
+    }
+    $("#arrowDown").click(function(){
+        window.location = 'hallway2.html';
+    })
+    $("#arrowLeft").click(function(){
+        window.location = 'Toliet.html';
+    })
+});
+</script>
+</head>
+<body>
+<div id ="lockerRoom">
+    <div id="content">
+        <img id="arrowDown" src="images/down.png">
+        <img id="arrowLeft" src="images/left.png">
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+
+    </div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>

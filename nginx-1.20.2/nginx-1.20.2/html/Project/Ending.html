@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ending</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#mercy').hide();
+    $('#kill').hide();
+    $('#true').hide();
+
+
+
+    var counter = 0;
+
+    $("div#stage").click(ClickCommand);
+    function ClickCommand(){
+        
+        counter++;
+        
+        if (counter == 1){
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("WAIT.");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("Let's forget about everything.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("Those things I've said...");
+        }
+        if (counter == 4){
+            $('div#chattext').text("It was only to poke fun at you.");
+        }
+        if (counter == 5){
+            $('#chatname').text("D");
+            $('div#chattext').text("...");
+        }
+        if (counter == 6){
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("I meant no harm, I promise...");
+        }
+        if (counter == 7){
+            $('div#chattext').text("Please don't do this.");
+        }
+        if (counter == 8){
+            $('div#chattext').text("I know the consequences of my actions...");
+        }
+        if (counter == 9){
+            $('div#chattext').text("I apologise for looking and using you past memories like that...");
+        }
+        if (counter == 10){
+            $('#chatname').text("D");
+            $('div#chattext').text("...");
+        }
+        if (counter == 11){
+            $('#chatbox').hide();
+            $('#mercy').show();
+            $('#kill').show();
+            if(localStorage.getItem('bulletCollected') == 'true' && localStorage.getItem('Talisman') == 'true' && localStorage.getItem('Token') == 'true'){
+                $('#true').show();
+            }
+        }
+    }
+
+    $("#mercy").click(function(){
+        window.location = 'BadEnding.html';
+    })
+    $("#kill").click(function(){
+        window.location = 'GoodEnding.html';
+    })
+    $("#true").click(function(){
+        window.location = 'TrueEnding.html';
+    })
+
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <div class="choice" id="mercy">MERCY</div>
+        <div class="choice" id="kill">KILL</div>
+        <div class="choice" id="true">TRUE ENDING</div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+
+    </div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>

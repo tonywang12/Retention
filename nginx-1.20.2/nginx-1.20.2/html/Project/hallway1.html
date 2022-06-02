@@ -19,14 +19,16 @@ $(document).ready(function() {
     $('#Doorbar').hide();   
 
 
-    
-    localStorage.setItem('firstKey', 'true');
-    var doorPresses = 0;
     var counter = 0;
+    var counter2 = 0;
+    var counter3 = 0;
+
+
+    var doorPresses = 0;
     var doorShow = false;
     var clicked = true;
     if (localStorage.getItem('firstHallway1') == 'true'){ 
-        $("div#stage").click(ClickCommand);
+        $("div#Hallway").click(ClickCommand);
     }
     
     function ClickCommand(){
@@ -39,10 +41,10 @@ $(document).ready(function() {
             $('#blur').css({ 'opacity': '0.5'});
         }
         if (counter == 2){
-            $('div#chattext').text("Things sure look different.");
+            $('div#chattext').text("Things sure look different");
         }
         if (counter == 3){
-            $('div#chattext').text("The place is a wreck after what happened.");
+            $('div#chattext').text("The place is a wreck now");
         }
         if (counter == 4){
             $('div#chattext').text("...");
@@ -62,7 +64,7 @@ $(document).ready(function() {
         }
     }
     
-    if (localStorage.getItem('firstFrontSchool') == 'false'){
+    if (localStorage.getItem('firstHallway1') == 'false'){
         $('#arrowUp').show();
         $('#arrowDown').show();
         $('#arrowLeft').show();
@@ -86,16 +88,12 @@ $(document).ready(function() {
         clicked = true;
         window.location = 'StaffRoom.html';
     })
-
-    if (localStorage.getItem('firstKey') == 'false'){
+    if (localStorage.getItem('firstKey') == 'false' && (localStorage.getItem('unlockedFirstDoor') == 'false')){
         $("#arrowRight2").click(function(){
-            $("div#stage").click(ClickCommand2);
-        })
-    }
-            function ClickCommand2(){
-                if (clicked){
-                    counter++;
-                }
+            var counter = 0;
+            $("div#Hallway").click(function(){
+                counter++;
+                
                 if (counter == 1){
                     $('#arrowUp').hide();
                     $('#arrowDown').hide();
@@ -118,7 +116,7 @@ $(document).ready(function() {
                 }
                 if (counter == 5){
                     $('#chatname').show();
-                    $('div#chattext').text("*breathing heavily* Yeah... I better find anyway in...");
+                    $('div#chattext').text("*breathing heavily* Yeah... I better find another way in...");
                 }
                 if (counter == 6){
                     $('#chatbox').hide();
@@ -129,18 +127,22 @@ $(document).ready(function() {
                     $('#arrowRight1').show();    
                     $('#arrowRight2').show();    
                 }
-            }
+            })
+        })
+    }
+            
         
-    
+       
+
     //if (localStorage.getItem('firstKey') == 'true' && localStorage.getItem('unlockedFirstDoor') == 'false'){
-    if (localStorage.getItem('firstKey') == 'true'){
+    if (localStorage.getItem('firstKey') == 'true' && (localStorage.getItem('unlockedFirstDoor') == 'false')){
         $("#arrowRight2").click(function(){
-            $("div#stage").click(ClickCommand3);
+            $("div#Hallway").click(ClickCommand3);
         })
     }
     function ClickCommand3(){
-        counter++;
-        if (counter == 1){
+        counter3++;
+        if (counter3 == 1){
             $('#arrowUp').hide();
             $('#arrowDown').hide();
             $('#arrowLeft').hide();
@@ -150,21 +152,21 @@ $(document).ready(function() {
             $('div#chattext').text("The key I got from the devil, seems to work.");
             $('#blur').css({ 'opacity': '0.5'});
         }
-        if (counter == 2){
+        if (counter3 == 2){
             $('div#chattext').text("...");
         }
-        if (counter == 3){
+        if (counter3 == 3){
             $('div#chattext').text("It's still quite jammed.");
         }
-        if (counter == 4){
+        if (counter3 == 4){
             $('div#chattext').text("Got to force it open.");
         }
-        if (counter == 5){
+        if (counter3 == 5){
             $('#chatname').hide();
             $('div#chattext').text("Press spacebar to force open the door.");
             $('#Door').show();               
         }
-        if (counter == 6){
+        if (counter3 == 6){
             $('#chatbox').hide();
             $('#Doorbar').show();   
             $('#blur').css({ 'opacity': '0'});
@@ -187,30 +189,34 @@ $(document).ready(function() {
             if (doorPresses==20){
                 console.log("DOOR OPENING SOUND");
                 window.location = 'Hallway2.html';
-                //localStorage.setItem('unlockedFirstDoor', 'true');
+                localStorage.setItem('unlockedFirstDoor', 'true');
+                localStorage.setItem('firstKey','none'); //so make sure cant redo door event    
+                
             }
         }
-    /*if(localStorage.getItem('unlockedFirstDoor') == 'true'){
+
+    if(localStorage.getItem('unlockedFirstDoor') == 'true'){
         $("#arrowRight2").click(function(){
         window.location = 'Hallway2.html';
         })
-    }*/
+    }
+
 
 });
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="Hallway">
     <div id="content">
-        <img id="Door" src="test.png">
+        <img id="Door" src="images/door.png">
         <div id="Doorbar">
             <div id = "DoorTotal"></div>
         </div>
-        <img id="arrowUp" src="test.png">
-        <img id="arrowLeft" src="test.png">
-        <img id="arrowRight1" src="test.png">
-        <img id="arrowRight2" src="test.png">
-        <img id="arrowDown" src="test.png">
+        <img id="arrowUp" src="images/up.png">
+        <img id="arrowLeft" src="images/left.png">
+        <img id="arrowRight1" src="images/right.png">
+        <img id="arrowRight2" src="images/right.png">
+        <img id="arrowDown" src="images/down.png">
     <div id="blur"></div>
     <div id="chatbox"> 
         <div id="chatname">D</div>

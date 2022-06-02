@@ -10,15 +10,19 @@ $(document).ready(function() {
     $('#content').hide();
     $('#content').fadeIn(3000);
     $('#chatbox').hide();
-    $('#key').hide();
+    $('#drawer').hide();
     $('#firstDevil').hide();
     $('#arrowLeft').hide();
     var counter = 0;
+    var counter2 = 0;
+    var counter3 = 0;
+
+
     var clicked = true;
 
-    if (localStorage.getItem('firstDevilDefeat') == 'false' && localStorage.getItem('firstKey') == 'false'){
+    if (localStorage.getItem('firstDevilDefeat') == 'false'){
 
-    $("div#stage").click(ClickCommand);
+    $("div#StaffRoom").click(ClickCommand);
 
     function ClickCommand(){
         if (clicked){
@@ -26,66 +30,134 @@ $(document).ready(function() {
         }
         if (counter == 1){
             $('#blur').css({ 'opacity': '0.5'});
-            $('div#chattext').text("Something doesn't feel right.");
+            $('div#chattext').text("...");
             $('#chatbox').show();
         }
         if (counter == 2){
-            $('div#chattext').text("");
+            $('div#chattext').text("Something doesn't feel right");
             //fade in the devil
-            $('#firstDevil').fadeIn(3000);
+            $('#firstDevil').fadeIn(1500);
         }
         if (counter == 3){
-            window.location = 'fight1.html';
+            $('div#chattext').text("Crap");
+        }
+        if (counter == 4){
+            $('div#chattext').text("Looks like I've got to deal with this");
+        }
+        if (counter == 5){
+            window.location = 'StareDevil.html';
         }
     }
 }
     
     if (localStorage.getItem('firstDevilDefeat') == 'true'){
 
-        $("div#stage").click(ClickCommand);
+        $("div#StaffRoom").click(ClickCommand);
 
     function ClickCommand(){
-        if (clicked){
-        counter++;
-        }
-        if (counter == 1){
+        counter2++;
+        if (counter2 == 1){
         $('#blur').css({ 'opacity': '0.5'});
-        $('div#chattext').text("The devil seemed to drop something...");
+        $('#chatname').hide();
+        $('div#chattext').text("YOU HAVE DEFEAT THE STARE DEVIL");
         $('#chatbox').show();
-     }
-        if (counter == 2){
+        }
+        if (counter2 == 2){
+            $('#chatname').show();
+            $('div#chattext').text("*sigh*");
+        }
+        if (counter2 == 3){
+            $('div#chattext').text("Not as clean as I pictured");
+        }
+        if (counter2 == 4){
+            $('div#chattext').text("The devil seemed to drop something");
+        }
+        if (counter2 == 5){
             $('#chatname').hide();
             $('div#chattext').text("*You obtained a KEY!*");
         }
-        if (counter == 3){
+        if (counter2 == 6){
             $('#chatname').show();
-            $('div#chattext').text("Looks like this might be useful.");
+            $('div#chattext').text("This might come in useful");
+        }
+        if (counter2 == 7){
             localStorage.setItem('firstKey', 'true');
-            localStorage.setItem('firstDevilDefeat', 'false');
+            localStorage.setItem('firstDevilDefeat', 'none');
             $('#chatbox').hide();
             $('#blur').css({ 'opacity': '0'});
             $('#arrowLeft').show();
-
+            $('#drawer').show();
         }
     }
     }
+    //
+    
 
-    if (localStorage.getItem('firstDevilDefeat') == 'false' && localStorage.getItem('firstKey') == 'true'){
-        $('#arrowLeft').show();
+    if (localStorage.getItem('TrueKey') == 'false'){
+
+        $("div#drawer").click(function(){
+            $('#drawer').hide();
+            $('#arrowLeft').hide();
+            var counter = 0;
+            $('div#StaffRoom').click(function(){
+                counter++;
+                console.log(counter);
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("...");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                $('div#chattext').text("It doesn't want to open.");
+            }
+            if (counter == 3){
+                $('#chatbox').hide();
+                $('#blur').css({ 'opacity': '0'});
+                $('#drawer').show();
+                $('#arrowLeft').show();
+            }
+            })
+        })
+    }
+    if (localStorage.getItem('TrueKey') == 'true'){
+        $("div#drawer").click(function(){
+            $('#drawer').hide();
+            $('#arrowLeft').hide();
+            var counter = 0;
+            $('div#StaffRoom').click(function(){
+                counter++;
+                console.log(counter);
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("...");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                window.location = 'Photograph.html';
+            }
+            })
+        })
     }
 
-        $("#arrowLeft").click(function(){
-            window.location = 'hallway1.html';
-        })
+    if (localStorage.getItem('firstDevilDefeat') == 'none'){
+        $('#arrowLeft').show();
+        $('#drawer').show();
+    }
+
+    $("#arrowLeft").click(function(){
+        window.location = 'hallway1.html';
+    })
 });
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="StaffRoom">
     <div id="content">
-        <img id="firstDevil" src="test.png">
-        <img id="arrowLeft" src="test.png">
-        <div id="key" class="clickables"></div>
+        <img id="firstDevil" src="images/firstDevil.png">
+        <img id="arrowLeft" src="images/left.png">
+        <div id="drawer" class="clickables"></div>
     <div id="blur"></div>
     <div id="chatbox"> 
         <div id="chatname">D</div>
@@ -93,6 +165,8 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
-
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
 </body>
 </html>

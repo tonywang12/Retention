@@ -9,7 +9,169 @@
     border: 20px solid white;
     border-radius: 5px;
     box-shadow: 5px 10px #888888;
-    
+    z-index: 989;
+}
+#FrontSchool{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/frontschool.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#tolietRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/tolietRoom.png");
+    background-size: cover;
+    background-size:1300px 750px;    
+}
+#ComputerRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/computerRoomOn.png");
+    background-size: cover;
+    background-size:1300px 850px;    
+}
+#lockerRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/locker1.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#Hallway2{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/h2.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#Artroom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/artroom.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#ScienceRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/ScienceRoom.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#StaffRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/staffroom.jpeg.png");
+    background-size: cover;
+    background-size:1300px 850px;    
+}
+#JanitorRoom{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/janitor.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#boy1{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+    position: absolute;
+
+}
+#Hallway{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-image: url("images/hallway.png");
+    background-size: cover;
+    background-size:1300px 650px;    
+}
+#bossDevil{
+position: absolute;
+width: 1300px;
+	height: 650px;
 }
 #mazestage {
 	width: 1300px;
@@ -54,7 +216,7 @@ h1{
     text-align: center;
     text-decoration: none;
     padding-bottom: 30px;
-    background-image: url("title.gif");
+    background-image: url("images/title.gif");
     background-size: 1300px 650px;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
@@ -80,7 +242,30 @@ body{
     left: 150px;
     z-index: 999;
 }
-
+#rewardbox{
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
+    height: 200px;
+    width: 1000px;
+    padding: 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 150px;
+    z-index: 9990;
+}
+#rewardtext{
+    color: whitesmoke;
+    position: absolute;
+    top:50px;
+    left:50px;
+    font-size: 25px;
+}
 #chatname{
     padding-bottom: 25px;
     position: absolute;
@@ -122,8 +307,7 @@ body{
 
 .clickables{
     position: absolute;
-    top:200px;
-    left:650px;
+    
     width: 25px;
 	height: 25px;
     background-color: yellow;
@@ -165,11 +349,6 @@ body{
     width: 1300px;
     height: 650px;
     position: absolute;
-
-    background-size: cover;
-
-    background-size:1300px 650px;
-    background-color: red;
 }
 #blur{
     width: 1300px;
@@ -177,22 +356,23 @@ body{
     position: absolute;
     background-color: black;
     opacity: 0;
+    
 }
 #arrowUp{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
-    left: 550px;
+    width: 70px;
+    height: 70px;
+    left: 600px;
     cursor: pointer;
 }
 #arrowLeft{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     left: 20px;
     top:250px;
     cursor: pointer;
@@ -201,8 +381,8 @@ body{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     right: 20px;
     top:250px;
     cursor: pointer;
@@ -211,8 +391,8 @@ body{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     right: 20px;
     top:150px;
     cursor: pointer;
@@ -221,8 +401,8 @@ body{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     right: 20px;
     top:450px;
     cursor: pointer;
@@ -231,17 +411,25 @@ body{
     user-select: none;
     position: absolute;
     z-index: 1;
-    width: 100px;
-    height: 100px;
-    left: 550px;
+    width: 70px;
+    height: 70px;
+    left: 600px;
     bottom: 5px;
     cursor: pointer;
 }
 #drawing{
-  left:200px;
+  left:670px;
+  top:200px;
 }
-#window{
-    top:200px;
+#window{    
+    left:120px;
+    top:240px;
+}
+#wallpic{
+    position: absolute;
+    width: 60px;
+    left:655px;
+    top:230px;
 }
 #test{
     position: absolute;
@@ -274,14 +462,21 @@ body{
 }
 #goal{
     position:absolute;
-    top:300px;
-    right:200px;
+    top:310px;
+    right:230px;
     z-index: 101;
 }
 #firstDevil{
+    user-select: none;
     height:650px;
     position:absolute;
-    
+    left:230px;
+    z-index: 998;
+}
+#secondDevil{
+    top:30px;
+    height:550px;
+    position:absolute;
     left:230px;
     z-index: 998;
 }
@@ -308,6 +503,7 @@ body{
 
     width: 500px;
     height: 40px;
+    background-color: grey;
 
     border: 3px solid black;
     position: absolute;
@@ -326,14 +522,22 @@ body{
     background-color: white;
 }
 
-#attack1, #skill1{
+#attack1{
     border: 2px solid yellow;
     padding-inline: 40px;
     position: absolute;
     font-size:20px;
     cursor: pointer;
     color: yellow;
-
+    width: 98px;
+}
+#skill1{
+    border: 2px solid yellow;
+    padding-inline: 40px;
+    position: absolute;
+    font-size:20px;
+    cursor: pointer;
+    color: yellow;
 }
 #attack2{
     border: 2px solid yellow;
@@ -357,12 +561,12 @@ body{
 }
 #skill2{
     color: yellow;
-
     border: 2px solid yellow;
     padding-inline: 61px;
     position: absolute;
     top:60px;
     font-size:20px;
+    width:65px;
     cursor: pointer;
 }
 #back{
@@ -427,7 +631,6 @@ body{
     background-color: red;
 }
 #manabar{
-
     width: 120px;
     height: 20px;
     border: 3px solid white;
@@ -435,6 +638,22 @@ body{
     left:600px;
     bottom:40px;
     z-index: 1000;
+}
+#hp{
+    position: absolute;
+    color: yellow;
+    top:570px;
+    left:270px;
+    z-index: 1000;
+
+}
+#ma{
+    position: absolute;
+    top:570px;
+    left:540px;
+    z-index: 1000;
+
+    color: yellow;
 }
 #mana{
     color:white;
@@ -497,6 +716,7 @@ body{
 }
 
 #devilName{
+    color:yellow;
     position: absolute;
     left:371px;
     top:18px;
@@ -514,14 +734,14 @@ body{
 
 #info{
     position: absolute;
-    left: 200px;
+    left: 250px;
     top:50px;
     font-size: 25px;
     color: whitesmoke;
 }
 #infocost{
     position: absolute;
-    left: 200px;
+    left: 250px;
     top:80px;
     font-size: 25px;
     color: lightskyblue;
@@ -530,7 +750,7 @@ body{
 #Door{
     position: absolute;
     height: 650px;
-    left:300px;
+    left:200px;
     user-select: none;
 
 }
@@ -554,5 +774,252 @@ body{
     height:40px;
     width: 0px;
     font-size: 30px;
-    background-color: white;
+    background-color: yellow;
+}
+
+#article{
+    left:250px;
+    bottom:200px;
+}
+
+#bunsen{
+    right:310px;
+    top:180px;
+}
+
+#piece1,#piece2,#piece3,#piece4,#piece5{
+    z-index: 999;
+    position: absolute;
+    width: 150px;
+    user-select: none;
+
+}
+#piece2{
+    top:450px;
+}
+#piece3{
+    left:150px;
+    top:225px;
+}
+#piece4{
+    top:150px;
+}
+#piece5{
+    top:300px;
+    
+}
+#area1,#area2,#area3,#area4,#area5{
+
+    border-style: solid;
+    width: 100px;
+    border-color: yellow;
+}
+#area1{
+    top:200px;
+    user-select: none;
+    z-index: 998;
+    position: absolute;
+    left:400px;
+}
+#area2{
+    top:200px;
+
+    user-select: none;
+    z-index: 998;
+    position: absolute;
+    left:620px;
+}
+#area3{
+    top:200px;
+
+    user-select: none;
+    z-index: 998;
+    position: absolute;
+    left:820px;
+}
+#area4{
+    user-select: none;
+    z-index: 998;
+    position: absolute;
+    left:500px;
+    top:400px;
+}
+#area5{
+    user-select: none;
+    z-index: 998;
+    position: absolute;
+    left:750px;
+    top:400px;
+}
+
+#completeArticle{
+    position: absolute;
+        z-index: 998;
+        width: 950px;
+        left:190px;
+        
+}
+
+#gameStage {
+	width: 650px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+    background-color: black;
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    
+}
+
+
+#gamebox{
+    box-sizing: border-box;
+    user-select: none;
+    cursor: pointer;
+    color: whitesmoke;
+    background-color: black;
+    border: 10px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 5px #888888;
+    height: 200px;
+    width: 400px;
+    padding: 15px;
+    position: absolute;
+    bottom: 100px;
+    left: 130px;
+    z-index: 999;
+}
+
+#enemy{
+    width: 20px;
+    height: 20px;
+}
+#enemy2{
+    width: 50px;
+    height: 50px;
+}
+#enemy3{
+    width: 90px;
+    height: 90px;
+}
+#playergame{
+    width: 20px;
+    left:300px;
+    top:300px;
+    position:absolute;
+    z-index: 101;
+}
+
+#boxpic{
+    width:120px;
+    position:absolute;
+    left:470px;
+    top:350px;
+    user-select: none;
+
+}
+#box{
+    left:520px;
+    top:340px;
+}
+#pie{
+    user-select: none;
+    top:200px;
+    left:350px;
+    width:520px;
+    position: absolute;
+}
+#phoneclick{
+    left: 650px;
+    top:80px;
+}
+
+#pc{
+    left:630px;
+    top:420px;
+}
+#bulletClick{
+    left:350px;
+    top:480px;
+}
+#drawer{
+    left:910px;
+    top:500px;
+}
+
+.choice{
+
+    background-color: black;
+    border: 5px solid yellow;
+    color: yellow;
+    position: absolute;
+    padding: 10px;
+    font-size:40px;
+    left:200px;
+    top:40px;
+    cursor: pointer;
+}
+#mercy{
+    top:450px;
+    left:400px;
+}
+#kill{
+    position: absolute;
+    top:450px;
+    left:680px;
+    padding-left: 35px;
+    padding-right: 35px;
+
+}
+#true{
+    top:550px;
+    left:480px;
+}
+#phone{
+    user-select: none;
+
+    position: absolute;
+    width:200px;
+    left:560px;
+    top:130px;
+}
+#bullet{
+    user-select: none;
+    z-index: 50;
+    position:absolute;
+    width:300px;
+    left:500px;
+    top:80px;
+}
+#floorarticle{
+    user-select: none;
+
+    width:100px;
+    position:absolute;
+    left: 210px;
+    top:450px;
+}
+#talisman{
+    user-select: none;
+
+    position:absolute;
+    left:140px;
+    bottom:140px;
+}
+#talismanPic{
+    user-select: none;
+
+    position:absolute;
+    width:100px;
+    left:100px;
+    bottom:60px;
+}
+#talismanImage{
+    user-select: none;
+    left:390px;
+    position:absolute;
+    z-index: 100;
 }

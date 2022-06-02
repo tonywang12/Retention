@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Toliet</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#tolietRoom').hide();
+    $('#tolietRoom').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#picture').hide();
+    $('#talismanImage').hide();
+
+    
+    $('#talisman').show();
+    if (localStorage.getItem('Talisman') == 'false'){
+    $("div#talisman").click(function(){
+            $('#talisman').hide();
+            $('#talismanPic').hide();
+            $('#arrowRight').hide();
+            var counter = 0;
+            $('div#tolietRoom').click(function(){
+                counter++;
+                console.log(counter);
+               
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('#talismanImage').show();
+            }
+            if (counter == 2){
+                $('#chatbox').show();
+                $('div#chattext').text("A high grade talisman");
+            }
+            if (counter == 3){
+                $('div#chattext').text("Why is it here?");
+            }
+            if (counter == 4){
+                $('div#chattext').text("Perhaps this will be useful for protection");
+            }
+            if (counter == 5){
+                $('div#chattext').text("...");
+            }
+            if (counter == 6){
+                $('div#chattext').text("Plus it looks expensive");
+            }
+            if (counter == 7){
+                $('#chatname').hide();
+                $('div#chattext').text("*You have obtained a Talisman*");
+                localStorage.setItem('Talisman', 'true');    
+            }
+            if (counter == 8){
+                $('#chatbox').hide();
+                $('#blur').css({ 'opacity': '0'});
+                $('#arrowRight').show();
+                $('#talisman').hide();
+                $('#talismanPic').hide();
+                $('#talismanImage').hide();
+
+
+            }
+      
+            })
+        })
+    }
+    if (localStorage.getItem('Talisman') == 'true'){
+        $('#talisman').hide();
+        $('#talismanPic').hide();
+    }
+    $("#arrowRight").click(function(){
+            window.location = 'LockerRoom.html';
+        })
+
+});
+</script>
+</head>
+<body>
+<div id ="tolietRoom">
+    <div id="content">
+        <img id="arrowRight" src="images/right.png">
+        
+    <div id="talisman" class="clickables"></div>    
+    <img id="talismanPic" src="images/talisman.png">
+    <img id="talismanImage" src="images/talisman.png">
+
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+
+    </div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>

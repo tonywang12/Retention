@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>True Ending</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#mercy').hide();
+    $('#kill').hide();
+    $('#true').hide();
+
+
+
+    var counter = 0;
+
+    $("div#stage").click(ClickCommand);
+    function ClickCommand(){
+        
+        counter++;
+        
+        if (counter == 1){
+            $('div#chattext').text("*RING* *RING*");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("*RING* *RING* *RING* *RING*");
+        }
+        if (counter == 3){
+            $('div#chattext').text("*RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING*");
+        }
+        if (counter == 4){
+            $('div#chattext').text("*RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING*");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Click on the yellow circle to interact with an object.");
+            $('#phoneclick').show();
+            clicked = false;
+        }
+        if (counter == 6){
+    
+            $('div#chattext').text("What's up boss");
+            $('#chatbox').hide();
+            $('#mercy').show();
+            $('#kill').show();
+            $('#true').show();
+        }
+        if (counter == 7){
+            localStorage.setItem('OpenDrawer', 'true');
+            window.location = 'JanitorRoom.html';
+        }
+    }
+    
+
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        <
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+
+    </div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>

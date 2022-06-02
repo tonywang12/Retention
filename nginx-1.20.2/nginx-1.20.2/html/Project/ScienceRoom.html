@@ -1,0 +1,506 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Science Room</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src ="jquery-ui.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#bunsen').hide();
+    $('#article').hide();
+    $('#arrowRight').hide();
+    $('#picture').hide();
+    $('#paper').hide();
+
+    $('#completeArticle').hide();
+    
+
+
+    $('#piece1').hide();
+    $('#piece2').hide();
+    $('#piece3').hide();
+    $('#piece4').hide();
+    $('#piece5').hide();
+
+    $('#area1').hide();
+    $('#area2').hide();
+    $('#area3').hide();
+    $('#area4').hide();
+    $('#area5').hide();
+
+
+
+
+    var counter = 0;
+    var counter2 = 0;
+    var correct = 0;
+    var Drawing = false;
+
+    if (localStorage.getItem('firstScienceRoom') == 'true'){
+
+    $("div#ScienceRoom").click(ClickCommand);
+
+        function ClickCommand(){
+            
+            counter++;
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("Science.");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                $('div#chattext').text("One of my favourite subjects at school.");
+            }
+            if (counter == 3){
+                $('div#chattext').text("Said no one ever.");
+            }
+            if (counter == 4){
+                localStorage.setItem('firstScienceRoom', 'false');    
+                $('#chatbox').hide();
+                $('#article').show();
+                $('#bunsen').show();
+                $('#arrowRight').show();
+                
+                $('#blur').css({ 'opacity': '0'});
+                }
+        }
+    }
+
+    
+    if (localStorage.getItem('firstScienceRoom') == 'false'){
+        $('#article').show();
+        $('#bunsen').show();
+        $('#arrowRight').show();
+    }
+
+    if (localStorage.getItem('articleComplete') == 'true'){
+        $("div#article").click(function(){
+            var counter = 0;
+            $("div#ScienceRoom").click(function(){
+                counter++;
+                if (counter== 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('#completeArticle').show();
+                    $('#floorarticle').hide();
+
+                    $('#article').hide();
+                    $('#bunsen').hide();
+                    $('#arrowRight').hide();
+                }
+                if (counter == 2){
+                    $('#chatbox').show();
+                    $('div#chattext').text("...");
+                }
+                if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){    
+                    $('#completeArticle').hide();
+                    $('#chatbox').hide();
+                    $('#article').show();
+                    $('#bunsen').show();
+                    $('#arrowRight').show();
+                    $('#floorarticle').show();
+
+                    $('#blur').css({ 'opacity': '0'});
+                    console.log("here");
+                    localStorage.setItem('articleComplete', 'true');
+                }
+                
+            })
+        })
+    }
+
+    
+    if (localStorage.getItem('articleAva') == 'true'){
+        $("div#article").click(function(){
+            $('#arrowRight').hide();
+                    $('#bunsen').hide();
+                    $('#article').hide();
+            var counter = 0;
+            $("div#ScienceRoom").click(function(){
+                counter++;
+                if (counter== 1){
+                    $('#chatbox').show();
+                    $('div#chattext').text("Looks like a old newspaper article.");
+                }
+                if (counter == 2){
+                    $('div#chattext').text("Hmm...");
+                }
+                if (counter == 3){
+                    $('div#chattext').text("I can't quite get the full picture.");
+                }
+                if (counter == 4){    
+                    $('div#chattext').text("Perhaps I can arrange them into a concise order.");
+                }
+                if (counter == 5){
+                    $('#chatbox').hide();
+                    console.log("SHOWING");
+                    $('#piece1').show();
+                    $('#piece2').show();
+                    $('#piece3').show();
+                    $('#piece4').show();
+                    $('#piece5').show();
+                    $('#area1').show();
+                    $('#area2').show();
+                    $('#area3').show();
+                    $('#area4').show();
+                    $('#area5').show();
+                    $('#arrowRight').hide();
+                    $('#bunsen').hide();
+                    $('#article').hide();
+                    $('#floorarticle').hide();
+
+                }
+            })
+            
+                
+        })
+    }
+
+    $('#piece1,#piece2,#piece3,#piece4,#piece5').draggable({
+		revert: 'invalid',
+		containment: 'parent',
+	});
+    var area1correct = true;
+    $('#area1').droppable({
+        accept:"#piece1",
+		drop: function(event, ui){
+            ui.draggable.css({ 'left': '400px'});   
+            if (area1correct){
+                correct++;
+                area1correct = false;
+            } 
+            if(correct==5){
+                $('#piece1').hide();
+                $('#piece2').hide();
+                $('#piece3').hide();
+                $('#piece4').hide();
+                $('#piece5').hide();
+                $('#area1').hide();
+                $('#area2').hide();
+                $('#area3').hide();
+                $('#area4').hide();
+                $('#area5').hide();
+                $('#completeArticle').show(); 
+                var counter = 0;
+                $('div#ScienceRoom').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+                if (counter == 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('div#chattext').text("...");
+                    $('#chatbox').show();
+                }
+                if (counter == 2){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 3){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowRight').show();
+                    $('#bunsen').show();
+                    $('#article').show();
+                    $('#completeArticle').hide();
+                    localStorage.setItem('articleAva', 'false');
+                    localStorage.setItem('articleComplete', 'true');
+                    
+                    window.location = 'ScienceRoom.html';
+                    
+                }
+                })
+            }
+		}
+	})
+    var area2correct = true;
+    $('#area2').droppable({
+        accept:"#piece2",
+		drop: function(event, ui){
+            ui.draggable.css({ 'left': '620px'});  
+            if (area2correct){
+                correct++;
+                area2correct = false;
+            } 
+            if(correct==5){
+                $('#piece1').hide();
+                $('#piece2').hide();
+                $('#piece3').hide();
+                $('#piece4').hide();
+                $('#piece5').hide();
+                $('#area1').hide();
+                $('#area2').hide();
+                $('#area3').hide();
+                $('#area4').hide();
+                $('#area5').hide();
+                $('#completeArticle').show(); 
+                var counter = 0;
+                $('div#ScienceRoom').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+                if (counter == 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('div#chattext').text("...");
+                    $('#chatbox').show();
+                }
+                if (counter == 2){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 3){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowRight').show();
+                    $('#bunsen').show();
+                    $('#article').show();
+                    $('#completeArticle').hide();
+                    localStorage.setItem('articleAva', 'false');
+
+                    localStorage.setItem('articleComplete', 'true');
+                    window.location = 'ScienceRoom.html';
+
+                }
+                })
+            }
+		}
+	})
+    var area3correct = true;
+    $('#area3').droppable({
+        accept:"#piece3",
+		drop: function(event, ui){
+            ui.draggable.css({ 'left': '820px'});   
+            if (area3correct){
+                correct++;
+                area3correct = false;
+            }
+            if(correct==5){
+                $('#piece1').hide();
+                $('#piece2').hide();
+                $('#piece3').hide();
+                $('#piece4').hide();
+                $('#piece5').hide();
+                $('#area1').hide();
+                $('#area2').hide();
+                $('#area3').hide();
+                $('#area4').hide();
+                $('#area5').hide();
+                $('#completeArticle').show();
+                var counter = 0;
+                $('div#ScienceRoom').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+                if (counter == 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('div#chattext').text("...");
+                    $('#chatbox').show();
+                }
+                if (counter == 2){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 3){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowRight').show();
+                    $('#bunsen').show();
+                    $('#article').show();
+                    $('#completeArticle').hide();
+                    localStorage.setItem('articleAva', 'false');
+
+                    localStorage.setItem('articleComplete', 'true');
+                    window.location = 'ScienceRoom.html';
+
+                }
+                })
+            }
+		}
+	})
+    var area4correct = true;
+    $('#area4').droppable({
+        accept:"#piece4",
+		drop: function(event, ui){
+            ui.draggable.css({ 'left': '500px', 'top': '400px'});   
+            if (area4correct){
+                correct++;
+                area4correct = false;
+            }
+            if(correct==5){
+                $('#piece1').hide();
+                $('#piece2').hide();
+                $('#piece3').hide();
+                $('#piece4').hide();
+                $('#piece5').hide();
+                $('#area1').hide();
+                $('#area2').hide();
+                $('#area3').hide();
+                $('#area4').hide();
+                $('#area5').hide();
+                $('#completeArticle').show();
+                var counter = 0;
+                $('div#ScienceRoom').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+                if (counter == 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('div#chattext').text("...");
+                    $('#chatbox').show();
+                }
+                if (counter == 2){
+                    $('div#chattext').text("It's all your fault....");
+                }
+                if (counter == 3){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowRight').show();
+                    $('#bunsen').show();
+                    $('#article').show();
+                    $('#completeArticle').hide();
+                    localStorage.setItem('articleAva', 'false');
+
+                    localStorage.setItem('articleComplete', 'true');
+                    window.location = 'ScienceRoom.html';
+
+                }
+                })
+            }
+		}
+	})
+    var area5correct = true;
+    $('#area5').droppable({
+        accept:"#piece5",
+		drop: function(event, ui){
+            ui.draggable.css({ 'left': '750px', 'top': '400px'});   
+            if (area5correct){
+                correct++;
+                area5correct = false;
+            }
+            if(correct==5){
+                
+                $('#piece1').hide();
+                $('#piece2').hide();
+                $('#piece3').hide();
+                $('#piece4').hide();
+                $('#piece5').hide();
+                $('#area1').hide();
+                $('#area2').hide();
+                $('#area3').hide();
+                $('#area4').hide();
+                $('#area5').hide();
+                $('#completeArticle').show();
+                var counter = 0;
+                $('div#ScienceRoom').click(function(){
+                counter++;
+                console.log(counter);
+                
+            
+                if (counter == 1){
+                    $('#blur').css({ 'opacity': '0.5'});
+                    $('div#chattext').text("...");
+                    $('#chatbox').show();
+                }
+                if (counter == 2){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 3){
+                    $('#chatbox').hide();
+                    $('#blur').css({ 'opacity': '0'});
+                    $('#arrowRight').show();
+                    $('#bunsen').show();
+                    $('#article').show();
+                    $('#completeArticle').hide();
+                    localStorage.setItem('articleAva', 'false');
+
+                    localStorage.setItem('articleComplete', 'true');
+                    window.location = 'ScienceRoom.html';
+
+                }
+                })
+            }
+		}
+	})
+
+    
+    
+
+    
+
+    $("div#bunsen").click(function(){
+        $('#article').hide();
+        $('#bunsen').hide();
+        $('#arrowRight').hide();
+        var counter = 0;
+        $('div#ScienceRoom').click(function(){
+            counter++;
+        if (counter == 1){
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("Robert Bunsen.");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("We'd used to burn many things before in class with this thing.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("Stickers, bottle caps, feathers...");
+        }
+        if (counter == 4){
+            $('div#chattext').text("Jimmy's T-shirt.");
+        }
+        if (counter == 5){
+            $('#chatbox').hide();
+            $('#blur').css({ 'opacity': '0'});
+            $('#bunsen').show();
+            $('#article').show();
+            $('#arrowRight').show();
+        }
+        })
+    })
+    
+
+
+    $("#arrowRight").click(function(){
+        window.location = 'Hallway2.html';
+    })
+});
+</script>
+</head>
+<body>
+<div id ="ScienceRoom">
+    <div id="content">
+        <img id="arrowRight" src="images/right.png">
+        
+        <img src="images/piece1.png" id="piece1"/>
+	    <img src="images/piece2.png" id="piece2"/>
+        <img src="images/piece3.png" id="piece3"/>
+	    <img src="images/piece4.png" id="piece4"/>
+        <img src="images/piece5.png" id="piece5"/>
+
+        <img src="images/placer.png" id="area1"/>
+        <img src="images/placer.png" id="area2"/>
+        <img src="images/placer.png" id="area3"/>
+        <img src="images/placer.png" id="area4"/>
+        <img src="images/placer.png" id="area5"/>
+
+        <img src="images/piece2.png" id="floorarticle"/>
+        <img src="images/paper.png" id="completeArticle"/>
+        <div id="article" class="clickables"></div>
+        <div id="bunsen" class="clickables"></div>
+    <div id="blur"></div>
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>

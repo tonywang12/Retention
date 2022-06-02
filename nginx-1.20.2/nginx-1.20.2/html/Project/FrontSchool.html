@@ -2,22 +2,26 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Title</title>
+<title>Front School</title>
 <link rel="stylesheet" href="styles.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() { 
-    $('#content').hide();
-    $('#content').fadeIn(3000);
+    $('#FrontSchool').hide();
+    $('#FrontSchool').fadeIn(3000);
     $('#chatbox').hide();
-    $('#arrowUp').hide();
     $('#bullet').hide();
+
+    $('#arrowUp').hide();
+    $('#bulletClick').hide();
     
     var counter = 0;
     var clicked = true;
+       
+
     if (localStorage.getItem('firstFrontSchool') == 'true'){
     
-    $("div#stage").click(ClickCommand);
+    $("div#FrontSchool").click(ClickCommand);
 
     function ClickCommand(){
         if (clicked){
@@ -29,18 +33,28 @@ $(document).ready(function() {
             $('#blur').css({ 'opacity': '0.5'});
         }
         if (counter == 2){
-            $('div#chattext').text("It's already dark.");
+            $('div#chattext').text("It's already dark");
         }
         if (counter == 3){
-            $('div#chattext').text("Kamnik Primary School...");
+            $('div#chattext').text("Travelling to Kamnik was longer than I thought");
+        }
+        if (counter == 3){
+            $('div#chattext').text("This whole town was destroyed back then...");
+        }
+        if (counter == 3){
+            $('div#chattext').text("That monster only grows more with fear.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("I'm still suprised this building is still intact");
         }
         if (counter == 4){
+            $('div#chattext').text("Best get this case finished with before morning");
+        }
+       
+        if (counter == 6){
             $('div#chattext').text("...");
         }
-        if (counter == 5){
-            $('div#chattext').text("Never thought I'll be here again...");
-        }
-        if (counter == 6){
+        if (counter == 7){
             $('div#chattext').text("Navigate D through the school by clicking on the arrows"); 
             $('#blur').css({ 'opacity': '0'});
             clicked = false;
@@ -50,23 +64,43 @@ $(document).ready(function() {
     }
     }
     if (localStorage.getItem('firstFrontSchool') == 'false'){
-        $('#bullet').show();
+        $('#bulletClick').show();
     }
-
-    $("div#bullet").click(function(){
-        $('#bullet').hide();
-        localStorage.setItem('numberOfItems','0');   
+    if (localStorage.getItem('bulletCollected') == 'true'){
+        $('#bulletClick').hide();
+    }
+    
+    
+    $("div#bulletClick").click(function(){
+        $('#bulletClick').hide();
+        $('#arrowUp').hide();
+         
         var counter = 0;
-            $('div#stage').click(function(){
+            $('div#FrontSchool').click(function(){
                 counter++;
                 console.log(counter);
             if (counter == 1){
                 $('#blur').css({ 'opacity': '0.5'});
-                $('div#chattext').text("This");
-                $('#chatbox').show();
+                $('#bullet').show();
             }
             if (counter == 2){
-                $('div#chattext').text("Perhaps what caused this damage is still outside near the window.");
+                $('div#chattext').text("*You have obtained Devil Bullet*");
+                $('#chatbox').show();
+                localStorage.setItem('bulletCollected', 'true'); 
+            }
+            if (counter == 3){
+                $('div#chattext').text("A bullet...");
+            }
+            if (counter == 4){
+                $('div#chattext').text("Evidence from that day");
+            }
+            if (counter == 5){
+                $('#chatbox').hide();
+                $('#blur').css({ 'opacity': '0'});  
+                $('#bulletClick').hide();
+                $('#bullet').hide();
+
+                $('#arrowUp').show();          
             }
          })
     })
@@ -76,19 +110,20 @@ $(document).ready(function() {
             clicked = true;
             window.location = 'hallway1.html';
         })
-        if (localStorage.getItem('firstFrontSchool') == 'false'){
-            $('#arrowUp').show();
-        }
+
+    if (localStorage.getItem('firstFrontSchool') == 'false'){
+        $('#arrowUp').show();
+    }
 });
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="FrontSchool">
     
     <div id="content">
-        <img id="bullet" src="">
+        <img id="bullet" src="images/bullet.png">
         <div id="bulletClick" class="clickables"></div>
-        <img id="arrowUp" src="test.png">
+        <img id="arrowUp" src="images/up.png">
     <div id="blur"></div>
     <div id="chatbox"> 
         <div id="chatname">D</div>
@@ -96,9 +131,9 @@ $(document).ready(function() {
     </div>
     </div>
 
-
-
 </div>
-
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
 </body>
 </html>

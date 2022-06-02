@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Good Ending</title>
+<link rel="stylesheet" href="styles.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() { 
+    $('#content').hide();
+    $('#content').fadeIn(3000);
+    $('#chatbox').hide();
+    $('#mercy').hide();
+    $('#kill').hide();
+    $('#true').hide();
+
+
+
+    var counter = 0;
+
+    $("div#stage").click(ClickCommand);
+    function ClickCommand(){
+        
+        counter++;
+        
+        if (counter == 1){
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("*laughs*");
+        }
+        if (counter == 1){
+            $('div#chattext').text("You...");
+        }
+        if (counter == 2){
+            $('div#chattext').text("YOU WILL REGRET THIS!");
+        }
+        if (counter == 2){
+            $('#chatname').text("D");
+            $('div#chattext').text("Die you devil scum.");
+        }
+        if (counter == 1){
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("WAIT.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("AS I MEMORY DEVIL I INHERIT THE ABILITY TO REMOVE A PERSON'S MEMORIES.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("I CAN FEEL AND UNDERSTAND YOUR GRIEF.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("LET ME HELP YOU FORGET.");
+        }
+        if (counter == 2){
+            $('#chatname').text("D");
+            $('div#chattext').text("...");
+        }
+        if (counter == 2){
+            $('#chatname').text("Memory Devil");
+
+            $('div#chattext').text("YES, come closer and I will rid of your pain.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("YOU IDIOT.");
+        }
+        if (counter == 2){
+            //Hide box and show him
+            //SLAsH SOUND
+            //DEVIL FADES OUT
+        }
+        if (counter == 2){
+            $('#chatname').text("D");
+            $('div#chattext').text("Don't you touch my memories.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("I wouldn't want to forget my time here.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("...");
+        }
+        if (counter == 2){
+            $('div#chattext').text("After all, I'm going to make the Gun Devil pay.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("The pain I've felt then was uncomparable.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("But I wouldn't want to forgot my time here.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("The good times.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("...");
+        }
+        if (counter == 2){
+            $('div#chattext').text("The best times.");
+        }
+        if (counter == 2){
+            $('div#chattext').text("Kel...");
+        }
+        if (counter == 2){
+            $('div#chattext').text("...");
+        }
+        if (counter == 2){
+            $('div#chattext').text("I'm done here...");
+        }
+        if (counter == 2){
+            //fade out content
+        }
+        if (counter == 7){
+            window.location = 'title.html';
+        }
+    }
+    
+
+});
+</script>
+</head>
+<body>
+<div id ="stage">
+    <div id="content">
+        
+    <div id="chatbox"> 
+        <div id="chatname">D</div>
+        <div id="chattext"></div>
+    </div>
+
+    </div>
+</div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
+
+</body>
+</html>

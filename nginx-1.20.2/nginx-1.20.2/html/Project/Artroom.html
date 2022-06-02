@@ -7,8 +7,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() { 
-    $('#content').hide();
-    $('#content').fadeIn(3000);
+    $('#Artroom').hide();
+    $('#Artroom').fadeIn(3000);
     $('#chatbox').hide();
     $('#drawing').hide();
     $('#window').hide();
@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     if (localStorage.getItem('firstArtRoom') == 'true'){
 
-    $("div#stage").click(ClickCommand);
+    $("div#Artroom").click(ClickCommand);
 
     function ClickCommand(){
         if (clicked){
@@ -57,7 +57,7 @@ $(document).ready(function() {
             $('#drawing').hide();
             $('#arrowDown').hide();
             var counter = 0;
-            $('div#stage').click(function(){
+            $('div#Artroom').click(function(){
                 counter++;
                 console.log(counter);
                 
@@ -78,7 +78,7 @@ $(document).ready(function() {
                 $('div#chattext').text("...");
             }
             if (counter == 5){
-                $('div#chattext').text("So it's been ten years ago since that day...");
+                $('div#chattext').text("So it's been ten years ago since then...");
             }
             if (counter == 6){
                 $('#chatbox').hide();
@@ -96,7 +96,7 @@ $(document).ready(function() {
             $('#drawing').hide();
             $('#arrowDown').hide();
             var counter = 0;
-            $('div#stage').click(function(){
+            $('div#Artroom').click(function(){
                 counter++;
                 console.log(counter);
                 
@@ -126,10 +126,11 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="Artroom">
     <div id="content">
-        <img id="arrowDown" src="test.png">
-        <img id="picture" src="Drawing.png">
+        <img id="arrowDown" src="images/down.png">
+        <img id="picture" src="images/Drawing.png">
+        <img id="wallpic" src="images/Drawing.png">
 
         <div id="drawing" class="clickables"></div>
         <div id="window" class="clickables"></div>
@@ -140,6 +141,9 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
+<audio autoplay loop id="music">
+    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+</audio>
 
 </body>
 </html>
