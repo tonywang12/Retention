@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Prologue</title>
+<title>Staff Room</title>
 <link rel="stylesheet" href="styles.css" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -39,12 +39,18 @@ $(document).ready(function() {
             $('#firstDevil').fadeIn(1500);
         }
         if (counter == 3){
-            $('div#chattext').text("Crap");
+            $('div#chattext').text("...");
         }
         if (counter == 4){
             $('div#chattext').text("Looks like I've got to deal with this");
         }
         if (counter == 5){
+            $('div#chattext').text("This doesn't feel like the Devil responsible.");
+        }
+        if (counter == 6){
+            $('div#chattext').text("Guess fighting is the only option.");
+        }
+        if (counter == 7){
             window.location = 'StareDevil.html';
         }
     }
@@ -67,10 +73,10 @@ $(document).ready(function() {
             $('div#chattext').text("*sigh*");
         }
         if (counter2 == 3){
-            $('div#chattext').text("Not as clean as I pictured");
+            $('div#chattext').text("The fight was not as clean as I pictured.");
         }
         if (counter2 == 4){
-            $('div#chattext').text("The devil seemed to drop something");
+            $('div#chattext').text("The devil seemed to drop something.");
         }
         if (counter2 == 5){
             $('#chatname').hide();
@@ -78,7 +84,7 @@ $(document).ready(function() {
         }
         if (counter2 == 6){
             $('#chatname').show();
-            $('div#chattext').text("This might come in useful");
+            $('div#chattext').text("This might come in useful.");
         }
         if (counter2 == 7){
             localStorage.setItem('firstKey', 'true');
@@ -125,19 +131,21 @@ $(document).ready(function() {
             $('#drawer').hide();
             $('#arrowLeft').hide();
             var counter = 0;
-            $('div#StaffRoom').click(function(){
-                counter++;
-                console.log(counter);
-            
+        $('div#StaffRoom').click(function(){
+            counter++;
+            console.log(counter);
             if (counter == 1){
                 $('#blur').css({ 'opacity': '0.5'});
                 $('div#chattext').text("...");
                 $('#chatbox').show();
             }
             if (counter == 2){
+                $('div#chattext').text("A photograph from back then.");
+            }
+            if (counter == 3){
                 window.location = 'Photograph.html';
             }
-            })
+        })
         })
     }
 
@@ -165,8 +173,6 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
+
 </body>
 </html>

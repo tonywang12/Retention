@@ -7,8 +7,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() { 
-    $('#content').hide();
-    $('#content').fadeIn(3000);
+    
     $('#chatbox').hide();
     $('#mercy').hide();
     $('#kill').hide();
@@ -18,7 +17,7 @@ $(document).ready(function() {
 
     var counter = 0;
 
-    $("div#stage").click(ClickCommand);
+    $("div#EndStage").click(ClickCommand);
     function ClickCommand(){
         
         counter++;
@@ -82,8 +81,10 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="EndStage">
     <div id="content">
+        <img src="images/MemoryDefeat.png" id="EndDevil"/>
+
         <div class="choice" id="mercy">MERCY</div>
         <div class="choice" id="kill">KILL</div>
         <div class="choice" id="true">TRUE ENDING</div>
@@ -94,9 +95,6 @@ $(document).ready(function() {
 
     </div>
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
 
 </body>
 </html>

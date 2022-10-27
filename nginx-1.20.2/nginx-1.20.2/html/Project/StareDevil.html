@@ -23,6 +23,11 @@ $(document).ready(function() {
 
     $('#firstDevil').show();
 
+    var slash  = new Audio('audio/slash.mp3');
+    var hit  = new Audio('audio/hit.mp3');
+    var heal  = new Audio('audio/heal.mp3');
+
+
     
     var counter = 0;
     var counter2 = 0;
@@ -101,6 +106,8 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=10%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
+
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -116,6 +123,7 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=10%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -131,6 +139,8 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=25%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
+
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -185,7 +195,8 @@ $(document).ready(function() {
                 devilHealth-=25;
                 $('#enemyhealth').css({ 'width': '-=25%'});
                 battlecounter++;
-            
+                slash.play();
+
                 devilTurn();
   
             },1500)
@@ -213,6 +224,8 @@ $(document).ready(function() {
                 $('#enemyhealth').css({ 'width': '-=10%'});
                 battlecounter++;
                 devilTurn();
+                slash.play();
+
             },1500)
     })
     $("div#attack3").click(function(){ //DD punch
@@ -224,6 +237,7 @@ $(document).ready(function() {
             $('div#chattext').text("D used DD Punch!");
             setTimeout(function(){
                 devilHealth-=35;
+                slash.play();
             $('#enemyhealth').css({ 'width': '-=35%'});
                 battlecounter++;
                 devilTurn();
@@ -255,6 +269,8 @@ $(document).ready(function() {
             $('#enemyhealth').css({ 'width': '-=65%'});
                 battlecounter++;
                 devilTurn();
+                slash.play();
+
             },1500)
         }
         })
@@ -296,7 +312,7 @@ $(document).ready(function() {
                 mana-=40
                 $('div#mana').text(mana +"/"+ maxMana);
                 $('div#health').text(health +"/"+ maxHealth);
-
+                heal.play();
                 $('#mana').css({ 'width': '-=40%'});
                 
                 devilTurn();

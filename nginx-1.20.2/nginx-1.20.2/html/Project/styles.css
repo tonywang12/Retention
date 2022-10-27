@@ -11,6 +11,19 @@
     box-shadow: 5px 10px #888888;
     z-index: 989;
 }
+#Truestage {
+	width: 1300px;
+	height: 980px;
+	margin: auto;
+	position: relative;
+	top:10px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    z-index: 989;
+}
 #FrontSchool{
     width: 1300px;
 	height: 650px;
@@ -25,6 +38,41 @@
     background-image: url("images/frontschool.png");
     background-size: cover;
     background-size:1300px 650px;    
+}
+#EndStage{
+    width: 1300px;
+	height: 650px;
+	margin: auto;
+	position: relative;
+	top:50px;
+    background-size: cover;
+
+    border: 20px solid white;
+    border-radius: 5px;
+    box-shadow: 5px 10px #888888;
+    background-color: grey;
+}
+
+#EndDevil{
+    position: absolute;
+    width:650px;
+    bottom:0px;
+    left:320px;
+    user-select: none;
+}
+#EvilDevil{
+    position: absolute;
+    width:650px;
+    bottom:0px;
+    left:320px;
+    user-select: none;
+}
+#SadDevil{
+    position: absolute;
+    width:650px;
+    bottom:0px;
+    left:320px;
+    user-select: none;
 }
 #tolietRoom{
     width: 1300px;
@@ -695,7 +743,6 @@ body{
     border-radius: 5px;
     box-shadow: 5px 5px #888888;
     user-select: none;
-
 }
 #fightInstructions{
     box-sizing: border-box;
@@ -863,7 +910,7 @@ body{
 #gameStage {
 	width: 650px;
 	height: 650px;
-	margin: auto;
+	left:600px;
 	position: relative;
 	top:50px;
     background-size: cover;
@@ -1022,4 +1069,13 @@ body{
     left:390px;
     position:absolute;
     z-index: 100;
+}
+#photograph{
+    width: 1300px;
+    overflow: hidden;
+}
+#Exit{
+    position: absolute;
+    left:1100px;
+    top:800px;
 }

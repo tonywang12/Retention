@@ -26,7 +26,9 @@ $(document).ready(function() {
 
     $('#firstDevil').show();
 
-    
+    var slash  = new Audio('audio/slash.mp3');
+    var hit  = new Audio('audio/hit.mp3');
+    var heal  = new Audio('audio/heal.mp3');
 
     var counter = 0;
     var battlecounter = 0;
@@ -55,10 +57,19 @@ $(document).ready(function() {
         if (counter == 2){
             $('div#chattext').text("...");
         }
-        if (counter == 2){
+        if (counter == 3){
             $('div#chattext').text("A devil seems to have taken form of you I see");
         }
         if (counter == 3){
+            $('div#chattext').text("...");
+        }
+        if (counter == 4){
+            $('div#chattext').text("Kind of wished you became one of my drawings.");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Mr. FrogCop would of been cool.");
+        }
+        if (counter == 6){
             $('#blur').css({ 'opacity': '0'});
             $('#chatbox').hide();
             $('#fightbox').show();
@@ -93,6 +104,7 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=15%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -108,6 +120,7 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=15%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -123,6 +136,7 @@ $(document).ready(function() {
                 $('#health').css({ 'width': '-=40%'});
                 $('#chatbox').hide();
                 $('#actions').show();
+                hit.play();
                 if (health<=0){
                 console.log("DEAD");
                 Dead();
@@ -173,6 +187,7 @@ $(document).ready(function() {
 
             }
             setTimeout(function(){
+                slash.play();
                 console.log("battlecounter ++");
                 devilHealth-=25;
                 $('#enemyhealth').css({ 'width': '-=12.5%'});
@@ -191,7 +206,7 @@ $(document).ready(function() {
             $('div#chattext').text("D used Focus Palm!");
             setTimeout(function(){
                 devilHealth-=10;
-
+                slash.play();
                 var manatest = mana;
                 if ((manatest+=40)<maxMana){
                     mana+=40
@@ -215,6 +230,7 @@ $(document).ready(function() {
             $('#chatbox').show();
             $('div#chattext').text("D used DD Punch!");
             setTimeout(function(){
+                slash.play();
                 devilHealth-=35;
             $('#enemyhealth').css({ 'width': '-=17.5%'});
                 battlecounter++;
@@ -243,6 +259,7 @@ $(document).ready(function() {
             $('#chatbox').show();
             $('div#chattext').text("D used Dark Binding!");
             setTimeout(function(){
+                slash.play();
                 devilHealth-=65;
             $('#enemyhealth').css({ 'width': '-=32.5%'});
                 battlecounter++;
@@ -266,6 +283,7 @@ $(document).ready(function() {
                 setTimeout(function(){
                 battlecounter++;
                 health = maxHealth;
+                heal.play();
                 
                 $('#health').css({ 'width': '120px'});
                 mana-=40
@@ -283,6 +301,7 @@ $(document).ready(function() {
             $('div#chattext').text("D used Pray!");
             setTimeout(function(){
                 health+=50
+                heal.play();
                 $('#health').css({ 'width': '+=50%'});
                 battlecounter++;
                 mana-=40
@@ -393,6 +412,8 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
-
+<audio autoplay loop id="music">
+    <source src="audio/14 Acrophobia.mp3" type="audio/mp3">
+</audio>
 </body>
 </html>

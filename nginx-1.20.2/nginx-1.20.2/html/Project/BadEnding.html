@@ -10,15 +10,15 @@ $(document).ready(function() {
     $('#content').hide();
     $('#content').fadeIn(3000);
     $('#chatbox').hide();
-    $('#mercy').hide();
-    $('#kill').hide();
-    $('#true').hide();
+    $('#EvilDevil').hide();
 
 
+
+    var laugh  = new Audio('audio/evilLaugh.mp3');
 
     var counter = 0;
 
-    $("div#stage").click(ClickCommand);
+    $("div#EndStage").click(ClickCommand);
     function ClickCommand(){
         
         counter++;
@@ -60,7 +60,7 @@ $(document).ready(function() {
             $('div#chattext').text("......");
         }
         if (counter == 11){
-            $('div#chattext').text("Fine...");
+            $('div#chattext').text("okay...");
         }
         if (counter == 12){
             $('#chatname').text("Memory Devil");
@@ -72,26 +72,31 @@ $(document).ready(function() {
         }
         if (counter == 14){
             $('#chatbox').hide();
-
+            $('#EvilDevil').show();
+            $('#EndDevil').hide();
             //YOU DIE DUDE GO CRZY MODE
         }
         if (counter == 15){
+            laugh.play();
+        }
+        if (counter == 16){
             $('#chatbox').show();
 
             $('#chatname').text("Memory Devil");
-            $('div#chattext').text("YOU FOOL.");
-        }
-        if (counter == 16){
-            $('div#chattext').text("WE DEVILS WOULD NEVER HELP A FILTHY HUMAN");
+            $('div#chattext').text("BAHAHAHAHAHAHA.");
         }
         if (counter == 17){
-            $('div#chattext').text("YOU IDIOT.");
+            $('div#chattext').text("WE DEVILS WOULD NEVER HELP A FILTHY HUMAN");
         }
         if (counter == 18){
-            //fade out content
+            $('div#chattext').text("YOU FOOL.");
         }
         if (counter == 19){
-            window.location = 'title.html';
+            $('#chatbox').hide();
+
+        }
+        if (counter == 20){
+            window.location = 'index.html';
         }
     }
     
@@ -100,9 +105,11 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="EndStage">
     <div id="content">
-        
+    <img src="images/MemoryDefeat.png" id="EndDevil"/>
+    <img src="images/MemoryEvil.png" id="EvilDevil"/>
+
     <div id="chatbox"> 
         <div id="chatname">D</div>
         <div id="chattext"></div>
@@ -110,9 +117,7 @@ $(document).ready(function() {
 
     </div>
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
+
 
 </body>
 </html>

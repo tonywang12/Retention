@@ -21,7 +21,7 @@ $(document).ready(function() {
     var counter = 0;
     var counter2 = 0;
 
-
+    var img = "images/computerRoomOff.png";  
     if (localStorage.getItem('GameComplete') == 'true'){
         $('#arrowLeft').hide();
         $('#chatname').hide();
@@ -66,6 +66,12 @@ $(document).ready(function() {
             $('div#chattext').text("...");
         }
         if (counter2 == 8){
+            $('div#chatname').text("System");
+            $('#chatname').show();
+            $('div#chattext').text("At Least You Still Got Your Trusty Computers Here!");
+        }
+        if (counter2 == 9){
+            $("#ComputerRoom").css("background-image", "url(" + img + ")");
             $('#blur').css({ 'opacity': '0'});
             $('#chatbox').hide();
             $('#pc').hide();
@@ -117,7 +123,7 @@ $(document).ready(function() {
     if (localStorage.getItem('secondKey') == 'true'){
         $('#arrowLeft').show();
 
-        var img = "images/computerRoomOff.png";  
+        
         $("#ComputerRoom").css("background-image", "url(" + img + ")");
     }
 

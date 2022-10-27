@@ -16,47 +16,56 @@ $(document).ready(function() {
     $('#picture').hide();
 
     var counter = 0;
-    var clicked = true;
+
     var Drawing = false;
 
     if (localStorage.getItem('firstArtRoom') == 'true'){
 
-    $("div#Artroom").click(ClickCommand);
+        $("div#Artroom").click(ClickCommand);
 
-    function ClickCommand(){
-        if (clicked){
-        counter++;
-        }
-        if (counter == 1){
-            $('#blur').css({ 'opacity': '0.5'});
-            $('div#chattext').text("This room's a mess.");
-            $('#chatbox').show();
-        }
-        if (counter == 2){
-            $('div#chattext').text("I'm suprised things are still intact.");
-        }
-        if (counter == 3){
-            localStorage.setItem('firstArtRoom', 'false');    
-            $('#chatbox').hide();
-            $('#window').show();
-            $('#drawing').show();
-            $('#arrowDown').show();
-            $('#blur').css({ 'opacity': '0'});
+        function ClickCommand(){
+            
+            counter++;
+            
+            if (counter == 1){
+                $('#blur').css({ 'opacity': '0.5'});
+                $('div#chattext').text("This room's a mess.");
+                $('#chatbox').show();
+            }
+            if (counter == 2){
+                $('div#chattext').text("I'm suprised things are still intact.");
+            }
+            if (counter == 3){
+                $('div#chattext').text("...");
+            }
+            if (counter == 4){
+                $('div#chattext').text("2pm Art classes were my favourite back then.");
+            }
+            if (counter == 5){
+                $('div#chattext').text("It's a shame that all my works were destroyed...");
+            }
+            if (counter == 6){
+                localStorage.setItem('firstArtRoom', 'false');    
+                $('#chatbox').hide();
+                $('#window').show();
+                $('#drawing').show();
+                $('#arrowDown').show();
+                $('#blur').css({ 'opacity': '0'});
             }
         }
-        }
+    }
 
-        if (localStorage.getItem('firstArtRoom') == 'false'){
-            $('#window').show();
-            $('#drawing').show();
-            $('#arrowDown').show();
-        }
+    if (localStorage.getItem('firstArtRoom') == 'false'){
+        $('#window').show();
+        $('#drawing').show();
+        $('#arrowDown').show();
+    }
 
-        $("div#drawing").click(function(){
-            $('#window').hide();
-            $('#drawing').hide();
-            $('#arrowDown').hide();
-            var counter = 0;
+    $("div#drawing").click(function(){
+        $('#window').hide();
+        $('#drawing').hide();
+        $('#arrowDown').hide();
+        var counter = 0;
             $('div#Artroom').click(function(){
                 counter++;
                 console.log(counter);
@@ -78,9 +87,24 @@ $(document).ready(function() {
                 $('div#chattext').text("...");
             }
             if (counter == 5){
-                $('div#chattext').text("So it's been ten years ago since then...");
+                $('div#chattext').text("Not much colour I must say.");
             }
             if (counter == 6){
+                $('div#chattext').text("A real amateur drew this I can tell.");
+            }
+            if (counter == 7){
+                $('div#chattext').text("Can't blame a child's mindset I guess.");
+            }
+            if (counter == 8){
+                $('div#chattext').text("...");
+            }
+            if (counter == 9){
+                $('div#chattext').text("Hmm.");
+            }
+            if (counter == 10){
+                $('div#chattext').text("So it's been ten years ago since then...");
+            }
+            if (counter == 11){
                 $('#chatbox').hide();
                 $('#blur').css({ 'opacity': '0'});
                 $('#window').show();
@@ -88,40 +112,48 @@ $(document).ready(function() {
                 $('#arrowDown').show();
                 $('#picture').hide();
             }
-      
-            })
+    
         })
-        $("div#window").click(function(){
-            $('#window').hide();
-            $('#drawing').hide();
-            $('#arrowDown').hide();
-            var counter = 0;
-            $('div#Artroom').click(function(){
-                counter++;
-                console.log(counter);
-                
-            
-            if (counter == 1){
-                $('#blur').css({ 'opacity': '0.5'});
-                $('div#chattext').text("This window seems to be damaged.");
-                $('#chatbox').show();
-            }
-            if (counter == 2){
-                $('div#chattext').text("Perhaps what caused this damage is still outside near the window.");
-            }
-            if (counter == 3){
-                $('#chatbox').hide();
-                $('#blur').css({ 'opacity': '0'});
-                $('#window').show();
-                $('#drawing').show();
-                $('#arrowDown').show();
-            }
-            })
-        })
+    })
 
-        $("#arrowDown").click(function(){
-            window.location = 'hallway1.html';
+    $("div#window").click(function(){
+        $('#window').hide();
+        $('#drawing').hide();
+        $('#arrowDown').hide();
+        var counter = 0;
+        $('div#Artroom').click(function(){
+            counter++;
+            console.log(counter);
+        if (counter == 1){
+            $('#blur').css({ 'opacity': '0.5'});
+            $('div#chattext').text("...");
+            $('#chatbox').show();
+        }
+        if (counter == 2){
+            $('div#chattext').text("This window seems to be damaged.");
+        }
+        if (counter == 3){
+            $('div#chattext').text("Guessing this was the result done by him...");
+        }
+        if (counter == 4){
+            $('div#chattext').text("That monster...");
+        }
+        if (counter == 5){
+            $('div#chattext').text("Perhaps what caused this damage is still outside near the window.");
+        }
+        if (counter == 6){
+            $('#chatbox').hide();
+            $('#blur').css({ 'opacity': '0'});
+            $('#window').show();
+            $('#drawing').show();
+            $('#arrowDown').show();
+        }
         })
+    })
+
+    $("#arrowDown").click(function(){
+        window.location = 'hallway1.html';
+    })
 });
 </script>
 </head>
@@ -141,9 +173,7 @@ $(document).ready(function() {
     </div>
 </div>
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
+
 
 </body>
 </html>

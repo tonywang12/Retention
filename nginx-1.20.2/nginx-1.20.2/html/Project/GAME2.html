@@ -49,7 +49,7 @@ $(document).ready(function() {
 	function generateEnemies() {
 		$('<img>').appendTo('#gameStage')
 		.attr('id','enemy2')
-		.attr('src','images/test.png')
+		.attr('src','images/goal.png')
 		.css({ 
 			top: getRandomNumber( 0, $('#gameStage').height()-$('#playergame').height() ),
             left: $('#gameStage').width(),
@@ -97,7 +97,7 @@ $(document).ready(function() {
 			width: 0
 		},{
 			easing: 'linear',
-			duration:5000,	
+			duration:12000,	
 			complete: function() {
 				endGame('survived');
 			}
@@ -117,5 +117,8 @@ $(document).ready(function() {
     <div id="countdownbar">
         <div id="time"></div>
     </div>
+	<audio autoplay loop id="music">
+		<source src="audio/48 Jash Bash.mp3.mp3" type="audio/mp3">
+	</audio>
 </body>
 </html>

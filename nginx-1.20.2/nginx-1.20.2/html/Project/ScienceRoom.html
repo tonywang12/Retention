@@ -54,12 +54,24 @@ $(document).ready(function() {
                 $('#chatbox').show();
             }
             if (counter == 2){
-                $('div#chattext').text("One of my favourite subjects at school.");
+                $('div#chattext').text("The mitochondria is the powerhouse of the cell.");
             }
             if (counter == 3){
-                $('div#chattext').text("Said no one ever.");
+                $('div#chattext').text("My I loved science.");
             }
             if (counter == 4){
+                $('div#chattext').text("Said no one ever.");
+            }
+            if (counter == 5){
+                $('div#chattext').text("...");
+            }
+            if (counter == 6){
+                $('div#chattext').text("I take that back.");
+            }
+            if (counter == 7){
+                $('div#chattext').text("Messing around with chemicals was pretty fun though.");
+            }
+            if (counter == 8){
                 localStorage.setItem('firstScienceRoom', 'false');    
                 $('#chatbox').hide();
                 $('#article').show();
@@ -97,9 +109,12 @@ $(document).ready(function() {
                     $('div#chattext').text("...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("Your the reason for all this...");
+                }
+                if (counter == 4){
                     $('div#chattext').text("It's all your fault...");
                 }
-                if (counter == 4){    
+                if (counter == 5){    
                     $('#completeArticle').hide();
                     $('#chatbox').hide();
                     $('#article').show();
@@ -200,9 +215,12 @@ $(document).ready(function() {
                     $('#chatbox').show();
                 }
                 if (counter == 2){
-                    $('div#chattext').text("It's all your fault...");
+                    $('div#chattext').text("Your the reason for all this...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowRight').show();
@@ -252,9 +270,12 @@ $(document).ready(function() {
                     $('#chatbox').show();
                 }
                 if (counter == 2){
-                    $('div#chattext').text("It's all your fault...");
+                    $('div#chattext').text("Your the reason for all this...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowRight').show();
@@ -304,9 +325,12 @@ $(document).ready(function() {
                     $('#chatbox').show();
                 }
                 if (counter == 2){
-                    $('div#chattext').text("It's all your fault...");
+                    $('div#chattext').text("Your the reason for all this...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowRight').show();
@@ -356,9 +380,12 @@ $(document).ready(function() {
                     $('#chatbox').show();
                 }
                 if (counter == 2){
-                    $('div#chattext').text("It's all your fault....");
+                    $('div#chattext').text("Your the reason for all this...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowRight').show();
@@ -409,9 +436,12 @@ $(document).ready(function() {
                     $('#chatbox').show();
                 }
                 if (counter == 2){
-                    $('div#chattext').text("It's all your fault...");
+                    $('div#chattext').text("Your the reason for all this...");
                 }
                 if (counter == 3){
+                    $('div#chattext').text("It's all your fault...");
+                }
+                if (counter == 4){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowRight').show();
@@ -443,7 +473,7 @@ $(document).ready(function() {
             counter++;
         if (counter == 1){
             $('#blur').css({ 'opacity': '0.5'});
-            $('div#chattext').text("Robert Bunsen.");
+            $('div#chattext').text("The classic bunsen burner.");
             $('#chatbox').show();
         }
         if (counter == 2){
@@ -453,9 +483,18 @@ $(document).ready(function() {
             $('div#chattext').text("Stickers, bottle caps, feathers...");
         }
         if (counter == 4){
-            $('div#chattext').text("Jimmy's T-shirt.");
+            $('div#chattext').text("Almost burnt Mari's hair once with it.");
         }
         if (counter == 5){
+            $('div#chattext').text("Kinda wish I did...");
+        }
+        if (counter == 6){
+            $('div#chattext').text("...");
+        }
+        if (counter == 7){
+            $('div#chattext').text("We did burn Jimmy's T-shirt though.");
+        }
+        if (counter == 8){
             $('#chatbox').hide();
             $('#blur').css({ 'opacity': '0'});
             $('#bunsen').show();

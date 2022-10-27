@@ -8,27 +8,32 @@
 <script>
 $(document).ready(function() { 
     $('#content').hide();
-    $('#content').fadeIn(3000);
+    $('#Exit').hide();
+    $('#content').fadeIn(5000);
+    $('#Exit').fadeIn(10000);
+
     
     //photo
     //title button fades in 
     //happy music/coloured
+    $("#Exit").click(function(){
+        window.location = 'index.html';
+    })
 });
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="Truestage">
     <div id="content">
-        <
-    <div id="chatbox"> 
-        <div id="chatname">D</div>
-        <div id="chattext"></div>
-    </div>
+    <img id="photograph" src="images/photograph.jpeg">
+    <div class="choice" id="Exit">Exit</div>
+
+    
 
     </div>
 </div>
 <audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+    <source src="audio/happy.mp3" type="audio/mp3">
 </audio>
 
 </body>

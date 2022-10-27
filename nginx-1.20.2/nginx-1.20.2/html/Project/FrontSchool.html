@@ -33,28 +33,28 @@ $(document).ready(function() {
             $('#blur').css({ 'opacity': '0.5'});
         }
         if (counter == 2){
-            $('div#chattext').text("It's already dark");
+            $('div#chattext').text("It's already dark.");
         }
         if (counter == 3){
-            $('div#chattext').text("Travelling to Kamnik was longer than I thought");
-        }
-        if (counter == 3){
-            $('div#chattext').text("This whole town was destroyed back then...");
-        }
-        if (counter == 3){
-            $('div#chattext').text("That monster only grows more with fear.");
-        }
-        if (counter == 3){
-            $('div#chattext').text("I'm still suprised this building is still intact");
+            $('div#chattext').text("Travelling to Kamnik was longer than I thought.");
         }
         if (counter == 4){
-            $('div#chattext').text("Best get this case finished with before morning");
+            $('div#chattext').text("This whole town was destroyed back then...");
         }
-       
-        if (counter == 6){
+        if (counter == 5){
             $('div#chattext').text("...");
         }
+        if (counter == 6){
+            $('div#chattext').text("I'm still suprised this building is still intact.");
+        }
         if (counter == 7){
+            $('div#chattext').text("Best get this case finished with before morning.");
+        }
+       
+        if (counter == 8){
+            $('div#chattext').text("...");
+        }
+        if (counter == 9){
             $('div#chattext').text("Navigate D through the school by clicking on the arrows"); 
             $('#blur').css({ 'opacity': '0'});
             clicked = false;
@@ -95,6 +95,12 @@ $(document).ready(function() {
                 $('div#chattext').text("Evidence from that day");
             }
             if (counter == 5){
+                $('div#chattext').text("I wonder how many of these bullets flew across the sky.");
+            }
+            if (counter == 6){
+                $('div#chattext').text("Better take this away before a Devil absorbs it's power.");
+            }
+            if (counter == 7){
                 $('#chatbox').hide();
                 $('#blur').css({ 'opacity': '0'});  
                 $('#bulletClick').hide();
@@ -132,8 +138,6 @@ $(document).ready(function() {
     </div>
 
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
+
 </body>
 </html>

@@ -16,15 +16,12 @@ $(document).ready(function() {
     $('#arrowRight').hide();
     $('#boy1').hide();
 
-    localStorage.setItem('firstScienceRoom', 'true');    
-    localStorage.setItem('articleComplete', 'false'); 
-    localStorage.setItem('articleAva', 'true');
+
 
        
 
     var laugh  = new Audio('audio/laugh.mp3');
     var counter = 0;    
-    var counter2 = 0;
 
 
     if (localStorage.getItem('firstHallway2') == 'true'){ 
@@ -44,15 +41,18 @@ $(document).ready(function() {
 
             $('#chatbox').show();
             $('#blur').css({ 'opacity': '0.5'})
-            $('div#chattext').text("Why is there a kid here.");
-        }
-        if (counter == 4){
             $('div#chattext').text("...");
         }
+        if (counter == 4){
+            $('div#chattext').text("That kid...");
+        }
         if (counter == 5){
-            $('div#chattext').text("Hopefully he's still safe if I find him later.");
+            $('div#chattext').text("He looks...");
         }
         if (counter == 6){
+            $('div#chattext').text("Hopefully he's still safe if I find him later.");
+        }
+        if (counter == 7){
             localStorage.setItem('firstHallway2','false');    
             $('#chatbox').hide();
             $('#blur').css({ 'opacity': '0'});
@@ -73,39 +73,40 @@ $(document).ready(function() {
 
     if(localStorage.getItem('secondKey') == 'false'){
         $("#arrowUp").click(function(){
-            $("div#Hallway2").click(ClickCommand2);
-        })
-    }
-            function ClickCommand2(){
-                    counter2++;
+            var counter = 0;
+            $("div#Hallway2").click(function(){
+                counter++;
                 
-                if (counter2 == 1){
+                if (counter == 1){
                     $('#arrowUp').hide();
                     $('#arrowDown').hide();
                     $('#arrowLeft').hide();
-                    $('#arrowRight1').hide();
+                    $('#arrowRight').hide();
                     $('#chatbox').show();
-                    $('div#chattext').text("It won't budge");
+                    $('div#chattext').text("Door won't budge");
                     $('#blur').css({ 'opacity': '0.5'});
                 }
-                if (counter2 == 2){
+                if (counter == 2){
                     $('div#chattext').text("Hmm...");
                 }
-                if (counter2 == 3){
-                    $('div#chattext').text("Seems like this key doesn't work.");
+                if (counter == 3){
+                    $('div#chattext').text("Seems like the key from before doesn't work.");
                 }
-                if (counter2 == 4){
+                if (counter == 4){
                     $('div#chattext').text("Perhaps there is another one near by.");
                 }
-                if (counter2 == 5){
+                if (counter == 5){
                     $('#chatbox').hide();
                     $('#blur').css({ 'opacity': '0'});
                     $('#arrowUp').show();
                     $('#arrowDown').show();
                     $('#arrowLeft').show();
-                    $('#arrowRight1').show();    
+                    $('#arrowRight').show();    
                 }
-            }
+            })
+        })
+    }
+           
      
 
     if(localStorage.getItem('secondKey') == 'true' && localStorage.getItem('DrawingDevilDefeat') == 'false'){

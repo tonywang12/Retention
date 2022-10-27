@@ -18,20 +18,22 @@ $(document).ready(function() {
     $('#picture').hide();
 
     var counter = 0;
-    //
-    if (localStorage.getItem('firstLockerRoom') == 'true'){
+    var happyMusic  = new Audio('audio/happy.mp3');
 
+
+    if (localStorage.getItem('firstLockerRoom') == 'true'){
+        happyMusic.play();
     $("div#lockerRoom").click(ClickCommand);
 
     function ClickCommand(){
         counter++;
         if (counter == 1){
             $('#chatname').text("???");
-            $('div#chattext').text("Kel we have to go to the park again today");
+            $('div#chattext').text("Kel we have to go to the park again today.");
             $('#chatbox').show();
         }
         if (counter == 2){
-            $('div#chattext').text("I bet the five dollars are still in the sand pit from yesterday");
+            $('div#chattext').text("I bet the five dollars are still in the sand pit from yesterday.");
         }
         if (counter == 3){
             $('div#chattext').text("Combining the five dollars I got from mom today we can definetly do it this time!");
@@ -43,7 +45,7 @@ $(document).ready(function() {
             $('div#chattext').text("I'm going to buy a fruit pop and a spongesob one!");
         }
         if (counter == 5){
-            $('div#chattext').text("And I'm going to ask for another sample of the cookie dough");
+            $('div#chattext').text("And I'm going to ask for another sample of the cookie dough.");
         }
         if (counter == 6){
             $('div#chattext').text("...");
@@ -67,6 +69,7 @@ $(document).ready(function() {
             $('#chatbox').hide();
         }
         if (counter == 13){
+            happyMusic.pause();
             var img = "images/locker.png";  
             $("#lockerRoom").css("background-image", "url(" + img + ")");
         }
@@ -147,9 +150,6 @@ $(document).ready(function() {
 
     </div>
 </div>
-<audio autoplay loop id="music">
-    <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
-</audio>
 
 </body>
 </html>

@@ -10,46 +10,109 @@ $(document).ready(function() {
     $('#content').hide();
     $('#content').fadeIn(3000);
     $('#chatbox').hide();
-    $('#mercy').hide();
-    $('#kill').hide();
-    $('#true').hide();
+    $('#EvilDevil').hide();
+    $('#SadDevil').hide();
 
 
+
+    var slash  = new Audio('audio/slash.mp3');
+    var death  = new Audio('audio/death.mp3');
+    var laugh  = new Audio('audio/evilLaugh.mp3');
 
     var counter = 0;
 
-    $("div#stage").click(ClickCommand);
+    $("div#EndStage").click(ClickCommand);
+
     function ClickCommand(){
         
         counter++;
         
         if (counter == 1){
-            $('div#chattext').text("*RING* *RING*");
             $('#chatbox').show();
+
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("*laughs*");
         }
         if (counter == 2){
-            $('div#chattext').text("*RING* *RING* *RING* *RING*");
+            $('div#chattext').text("You...");
         }
         if (counter == 3){
-            $('div#chattext').text("*RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING*");
+            $('div#chattext').text("YOU WILL REGRET THIS!");
         }
         if (counter == 4){
-            $('div#chattext').text("*RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING* *RING*");
+            $('#chatname').text("D");
+            $('div#chattext').text("Die you devil scum.");
         }
         if (counter == 5){
-            $('div#chattext').text("Click on the yellow circle to interact with an object.");
-            $('#phoneclick').show();
-            clicked = false;
+            $('#chatname').text("Memory Devil");
+            $('div#chattext').text("WAIT.");
         }
         if (counter == 6){
-    
-            $('div#chattext').text("What's up boss");
-            $('#chatbox').hide();
-            $('#mercy').show();
-            $('#kill').show();
-            $('#true').show();
+            $('div#chattext').text("AS I MEMORY DEVIL I INHERIT THE ABILITY TO REMOVE A PERSON'S MEMORIES.");
         }
         if (counter == 7){
+            $('div#chattext').text("I CAN FEEL AND UNDERSTAND YOUR GRIEF.");
+        }
+        if (counter == 8){
+            $('div#chattext').text("LET ME HELP YOU FORGET.");
+        }
+        if (counter == 9){
+            $('#chatname').text("D");
+            $('div#chattext').text("...");
+        }
+        if (counter == 10){
+            $('#chatname').text("Memory Devil");
+
+            $('div#chattext').text("YES, come closer and I will rid of your pain.");
+        }
+        if (counter == 11){
+            $('div#chattext').text("YOU IDIOT.");
+        }
+        if (counter == 12){
+            $('#EvilDevil').show();
+            $('#EndDevil').hide();
+            $('#chatbox').hide();
+            laugh.play();
+        }
+        if (counter == 13){
+            $('#SadDevil').show();
+            $('#EvilDevil').hide();
+            slash.play();
+            laugh.pause();
+
+        }
+        if (counter == 14){
+            $('#SadDevil').fadeOut(3000);
+            death.play();
+        }
+
+        if (counter == 14){
+            $('#chatbox').show();
+            $('#chatname').text("D");
+            $('div#chattext').text("Don't you touch my memories.");
+        }
+        if (counter == 15){
+            $('div#chattext').text("I wouldn't want to forget my time here.");
+        }
+        if (counter == 15){
+            $('div#chattext').text("...");
+        }
+        if (counter == 16){
+            $('div#chattext').text("After all, I'm going to make the Gun Devil pay.");
+        }
+        if (counter == 17){
+            $('div#chattext').text("The pain I've felt then was uncomparable.");
+        }
+        if (counter == 18){
+            $('div#chattext').text("But I don't want to forget...");
+        }
+        if (counter == 19){
+            $('div#chattext').text("The good times.");
+        }
+        if (counter == 20){
+            $('div#chattext').text("...");
+        }
+        if (counter == 21){
             localStorage.setItem('OpenDrawer', 'true');
             window.location = 'JanitorRoom.html';
         }
@@ -60,9 +123,13 @@ $(document).ready(function() {
 </script>
 </head>
 <body>
-<div id ="stage">
+<div id ="EndStage">
     <div id="content">
-        <
+        <img src="images/MemoryDefeat.png" id="EndDevil"/>
+        <img src="images/MemoryEvil.png" id="EvilDevil"/>
+        <img src="images/MemoryDead.png" id="SadDevil"/>
+
+
     <div id="chatbox"> 
         <div id="chatname">D</div>
         <div id="chattext"></div>

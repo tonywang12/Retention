@@ -22,6 +22,7 @@ $(document).ready(function() {
     var counter = 0;
     var counter2 = 0;
     var counter3 = 0;
+    var crack  = new Audio('audio/crack.mp3');
 
 
     var doorPresses = 0;
@@ -41,18 +42,27 @@ $(document).ready(function() {
             $('#blur').css({ 'opacity': '0.5'});
         }
         if (counter == 2){
-            $('div#chattext').text("Things sure look different");
+            $('div#chattext').text("Things sure look different.");
         }
         if (counter == 3){
-            $('div#chattext').text("The place is a wreck now");
+            $('div#chattext').text("The place is a wreck now.");
         }
         if (counter == 4){
             $('div#chattext').text("...");
         }
         if (counter == 5){
-            $('div#chattext').text("Time to find some clues and this devil.");
+            $('div#chattext').text("To think I went to school here before...");
         }
         if (counter == 6){
+            $('div#chattext').text("...");
+        }
+        if (counter == 7){
+            $('div#chattext').text("The past is the past...");
+        }
+        if (counter == 8){
+            $('div#chattext').text("Time to find some clues and this devil.");
+        }
+        if (counter == 9){
             $('#chatbox').hide();
             $('#blur').css({ 'opacity': '0'});
             $('#arrowUp').show();
@@ -110,6 +120,7 @@ $(document).ready(function() {
                 }
                 if (counter == 3){
                     $('div#chattext').text("*D tries anyways.");
+                    crack.play();
                 }
                 if (counter == 4){
                     $('div#chattext').text("...");
@@ -185,6 +196,7 @@ $(document).ready(function() {
             }
             if (doorPresses==10){
                 console.log("CRACKING SOUND");
+                crack.play();
             }
             if (doorPresses==20){
                 console.log("DOOR OPENING SOUND");

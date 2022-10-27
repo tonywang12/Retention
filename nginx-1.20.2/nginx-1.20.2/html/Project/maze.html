@@ -80,7 +80,7 @@ $(document).ready(function() {
             width: 0
         },{
             easing:'linear',
-            duration: 23000,
+            duration: 17000,
             complete:function(){
                 $('#chatbox').show();
                 $('div#chattext').text("You have failed. Try again");
@@ -110,5 +110,8 @@ $(document).ready(function() {
     <div id="countdownbar">
         <div id="time"></div>
     </div>
+    <audio autoplay loop id="music">
+        <source src="audio/80 Eternal Dungeon.mp3" type="audio/mp3">
+    </audio>
 </body>
 </html>
