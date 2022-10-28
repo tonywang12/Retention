@@ -11,4 +11,5 @@ Run Project:
 3. Navigate to nginx -> html -> Project -> index.html
 4. Run live server on index.html
 
-![Screenshot](retention.jpg)
+
+![retention](https://user-images.githubusercontent.com/69235038/198503112-4b37de7c-78fb-487d-856d-a220db5659f5.JPG)
