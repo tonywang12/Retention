@@ -12,5 +12,5 @@ A university major project called Retention, an interactive web game with the pu
 3. Navigate to nginx -> html -> Project -> index.html
 4. Run live server on index.html
 
-
+## Gallery 
 ![retention](https://user-images.githubusercontent.com/69235038/198503112-4b37de7c-78fb-487d-856d-a220db5659f5.JPG)
