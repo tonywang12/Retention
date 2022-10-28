@@ -9,7 +9,7 @@ A university major project called Retention, an interactive web game with the pu
 ## Run Project:
 1. Download Repository file
 2. Open respository file in a valid IDE
-3. Navigate to nginx -> html -> Project -> index.html
+3. Navigate to /nginx -> /html -> /Project -> index.html
 4. Run live server on index.html
 
 ## Gallery 
