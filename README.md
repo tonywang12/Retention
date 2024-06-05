@@ -2,8 +2,8 @@
 
 ## Project Description
 
-A university major project called Retention, an interactive web game with the purpose of storytelling through unique gameplay elements using JQUERY. This project was completed by me during the unit course 'MMCC3045 Interactive Web Design' at Macquarie University. A project showcasing my own fictional story (based on Chainsaw Man's world) with web and game design produced by myself.
-
+A project called Retention, an interactive web game with the purpose of storytelling through unique gameplay elements using JQUERY. A project showcasing my own fictional story (based on Chainsaw Man's world) with web and game design produced by myself.
+Developed using: HTML, CSS, JQUERY
 
 
 ## Run Project:
